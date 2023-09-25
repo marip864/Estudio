@@ -17,7 +17,7 @@ namespace Estudio
         {
             InitializeComponent();
             Modalidade exc = new Modalidade();
-            MySqlDataReader r = exc.consultarTodasModalidade();
+            MySqlDataReader r = exc.consultarTodasModalidade01();
             while(r.Read())
             {
                 cbxDescricao.Items.Add(r["descricaoModalidade"].ToString());
@@ -29,7 +29,7 @@ namespace Estudio
         {
             Modalidade modalidade = new Modalidade();
             modalidade.excluirModalidade(cbxDescricao.Text);
-            
+            MessageBox.Show("Excluído com sucesso!");
             
         }
 

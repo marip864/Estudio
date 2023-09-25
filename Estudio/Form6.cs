@@ -19,14 +19,22 @@ namespace Estudio
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            float preco = float.Parse(txtPreco.Text);
-            int qtd_alunos = int.Parse(txtAlunos.Text);
-            int qtd_aulas = int.Parse(txtAulas.Text);
-            Modalidade modalidade = new Modalidade(txtDescricao.Text,preco,qtd_alunos,qtd_aulas);
-            if (modalidade.cadastrarModalidade())
-                MessageBox.Show("Cadastro realizado com sucesso!");
-            else
-                MessageBox.Show("Erro no cadastro!");
+            try
+            {
+                float preco = float.Parse(txtPreco.Text);
+                int qtd_alunos = int.Parse(txtAlunos.Text);
+                int qtd_aulas = int.Parse(txtAulas.Text);
+                Modalidade modalidade = new Modalidade(txtDescricao.Text,preco,qtd_alunos,qtd_aulas);
+                if (modalidade.cadastrarModalidade())
+                    MessageBox.Show("Cadastro realizado com sucesso!");
+                else
+                    MessageBox.Show("Erro no cadastro!");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Os campos não podem ser nulos!");
+            }
+            
         }
     }
 }

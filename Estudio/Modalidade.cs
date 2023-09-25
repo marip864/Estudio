@@ -82,7 +82,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select * from Estudio_Modalidade where ativa = 0", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_Modalidade", DAO_Conexao.con);
                 result= consulta.ExecuteReader();
             }
             catch (Exception ex)
@@ -90,6 +90,40 @@ namespace Estudio
                 Console.WriteLine(ex.ToString());
             }
             return result;
+        }
+
+        public MySqlDataReader consultarTodasModalidade01()
+        {
+            MySqlDataReader result = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_Modalidade where ativa = 0", DAO_Conexao.con);
+                result = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
+        }
+
+        public int verificaAtivo()
+        {
+            MySqlDataReader resultS = null;
+            int resultI = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select ativa from Estudio_Modalidade where descricao = '"+ Descricao+"'", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+                resultI = int.Parse(resultS.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultI;
         }
 
         public bool atualizarModalidade()

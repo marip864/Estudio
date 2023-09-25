@@ -20,6 +20,7 @@ namespace Estudio
             if(op==1)
             {
                 button1.Visible = false;
+                button2.Visible = false;
                 opcao = 1;
             }
             else
@@ -39,14 +40,22 @@ namespace Estudio
 
         private void button1_Click(object sender, EventArgs e)
         {
-            float preco = float.Parse(txtPreco.Text);
-            int alunos = int.Parse(txtAlunos.Text);
-            int aulas = int.Parse(txtAulas.Text);
-            Modalidade m = new Modalidade(cbxDescricao.Text, preco, alunos, aulas);
-            if (m.atualizarModalidade())
+            try
             {
-                MessageBox.Show("Atualização realizada com sucesso!");
+                float preco = float.Parse(txtPreco.Text);
+                int alunos = int.Parse(txtAlunos.Text);
+                int aulas = int.Parse(txtAulas.Text);
+                Modalidade m = new Modalidade(cbxDescricao.Text, preco, alunos, aulas);
+                if (m.atualizarModalidade())
+                {
+                    MessageBox.Show("Atualização realizada com sucesso!");
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Selecione uma opção para atualizar!");
+            }
+            
         }
 
         private void Form8_Load(object sender, EventArgs e)
@@ -74,7 +83,24 @@ namespace Estudio
             {
                 MessageBox.Show("Modalidade não cadastrada!");
             }
+            if (opcao == 2)
+            {
+                int n = m.verificaAtivo();
+                if (n==1)
+                {
+                    button2.Enabled = true;
+                }
+                else
+                {
+                    button2.Enabled = false;
+                }
+            }
             DAO_Conexao.con.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
