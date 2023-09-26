@@ -32,6 +32,7 @@ namespace Estudio
 
         private void cadastrarLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             Form2 filho = new Form2();
             filho.MdiParent = this;
             filho.Show();
@@ -90,9 +91,13 @@ namespace Estudio
 
         private void cadastrarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form6 filho = new Form6();
-            filho.MdiParent = this;
-            filho.Show();
+            if(Application.OpenForms.OfType<Form6>().Count()==0)
+            {
+                Form6 filho = new Form6();
+                filho.MdiParent = this;
+                filho.Show();
+            }
+            
         }
 
         private void consultarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,13 +112,17 @@ namespace Estudio
             Form8 filho = new Form8(2);
             filho.MdiParent = this;
             filho.Show();
+            
         }
 
         private void excluirModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form7 filho = new Form7();
-            filho.MdiParent = this;
-            filho.Show();
+            if (Application.OpenForms.OfType<Form7>().Count() == 0)
+            {
+                Form7 filho = new Form7();
+                filho.MdiParent = this;
+                filho.Show();
+            }
         }
     }
 }
