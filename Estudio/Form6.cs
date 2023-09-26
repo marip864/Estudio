@@ -26,7 +26,14 @@ namespace Estudio
                 int qtd_aulas = int.Parse(txtAulas.Text);
                 Modalidade modalidade = new Modalidade(txtDescricao.Text,preco,qtd_alunos,qtd_aulas);
                 if (modalidade.cadastrarModalidade())
+                {
                     MessageBox.Show("Cadastro realizado com sucesso!");
+                    txtDescricao.Text = "";
+                    txtPreco.Text = "";
+                    txtAlunos.Text = "";
+                    txtAulas.Text = "";
+                }
+                    
                 else
                     MessageBox.Show("Erro no cadastro!");
             }

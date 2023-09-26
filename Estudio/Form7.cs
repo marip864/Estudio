@@ -27,9 +27,16 @@ namespace Estudio
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Modalidade modalidade = new Modalidade();
-            modalidade.excluirModalidade(cbxDescricao.Text);
-            MessageBox.Show("Excluído com sucesso!");
+            if(cbxDescricao.Text!="")
+            {
+                Modalidade modalidade = new Modalidade();
+                modalidade.excluirModalidade(cbxDescricao.Text);
+                MessageBox.Show("Excluído com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma opção para excluir!");
+            }
             
         }
 

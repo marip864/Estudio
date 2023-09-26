@@ -121,7 +121,6 @@ namespace Estudio
                 {
                     resultI = int.Parse(resultS["ativa"].ToString());
                 }
-                Console.WriteLine(resultI.ToString());
             }
             catch (Exception ex)
             {
