@@ -115,7 +115,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select ativa from Estudio_Modalidade where descricao = '"+ Descricao+"'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("select ativa from Estudio_Modalidade where descricaoModalidade = '"+ Descricao+"'", DAO_Conexao.con);
                 resultS = consulta.ExecuteReader();
                 resultI = int.Parse(resultS.ToString());
             }
@@ -124,6 +124,27 @@ namespace Estudio
                 Console.WriteLine(ex.ToString());
             }
             return resultI;
+        }
+
+        public bool tornarAtivo()
+        {
+            bool result = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Modalidade set ativa = 0 where descricaoModalidade = '"+Descricao+"'", DAO_Conexao.con);
+                atualiza.ExecuteNonQuery();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return result;
         }
 
         public bool atualizarModalidade()

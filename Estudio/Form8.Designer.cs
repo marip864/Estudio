@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.txtAulas = new System.Windows.Forms.TextBox();
             this.txtAlunos = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidades";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(355, 264);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(272, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Tornar ativo";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtAulas
             // 
@@ -136,17 +146,6 @@
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descrição:";
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(355, 264);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(272, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Tornar ativo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form8
             // 

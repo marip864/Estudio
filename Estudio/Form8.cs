@@ -83,7 +83,7 @@ namespace Estudio
             {
                 MessageBox.Show("Modalidade não cadastrada!");
             }
-            if (opcao == 2)
+            /*if (opcao == 2)
             {
                 int n = m.verificaAtivo();
                 if (n==1)
@@ -94,13 +94,27 @@ namespace Estudio
                 {
                     button2.Enabled = false;
                 }
-            }
+            }*/
             DAO_Conexao.con.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                float preco = float.Parse(txtPreco.Text);
+                int alunos = int.Parse(txtAlunos.Text);
+                int aulas = int.Parse(txtAulas.Text);
+                Modalidade m = new Modalidade(cbxDescricao.Text, preco, alunos, aulas);
+                if (m.tornarAtivo())
+                {
+                    MessageBox.Show("Modalidade ativada com sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecione uma opção para atualizar!");
+            }
         }
     }
 }
