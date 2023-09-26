@@ -26,6 +26,7 @@ namespace Estudio
             else
             {
                 button1.Text = "Atualizar";
+                button2.Enabled = false;
                 opcao = 2;
             }
             Modalidade ac = new Modalidade();
@@ -73,7 +74,7 @@ namespace Estudio
             }
             Modalidade m = new Modalidade(cbxDescricao.Text);
             MySqlDataReader mdr = m.consultarModalidade();
-            if(mdr.Read()) 
+            if(mdr.Read() != null) 
             {
                 txtPreco.Text = mdr["precoModalidade"].ToString();
                 txtAulas.Text = mdr["qtdeAulas"].ToString();
@@ -83,10 +84,11 @@ namespace Estudio
             {
                 MessageBox.Show("Modalidade não cadastrada!");
             }
-            /*if (opcao == 2)
+            DAO_Conexao.con.Close();
+            if (opcao == 2)
             {
                 int n = m.verificaAtivo();
-                if (n==1)
+                if (n == 1)
                 {
                     button2.Enabled = true;
                 }
@@ -94,8 +96,7 @@ namespace Estudio
                 {
                     button2.Enabled = false;
                 }
-            }*/
-            DAO_Conexao.con.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

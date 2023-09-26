@@ -117,11 +117,19 @@ namespace Estudio
                 DAO_Conexao.con.Open();
                 MySqlCommand consulta = new MySqlCommand("select ativa from Estudio_Modalidade where descricaoModalidade = '"+ Descricao+"'", DAO_Conexao.con);
                 resultS = consulta.ExecuteReader();
-                resultI = int.Parse(resultS.ToString());
+                if(resultS.Read())
+                {
+                    resultI = int.Parse(resultS["ativa"].ToString());
+                }
+                Console.WriteLine(resultI.ToString());
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
             }
             return resultI;
         }
@@ -139,10 +147,6 @@ namespace Estudio
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                DAO_Conexao.con.Close();
             }
             return result;
         }
