@@ -91,7 +91,7 @@ namespace Estudio
 
         private void cadastrarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Application.OpenForms.OfType<Form6>().Count()==0)
+            if((Application.OpenForms.OfType<Form6>().Count()==0)&&(Application.OpenForms.OfType<Form7>().Count() == 0)&& (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form6 filho = new Form6();
                 filho.MdiParent = this;
@@ -102,22 +102,28 @@ namespace Estudio
 
         private void consultarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form8 filho = new Form8(1);
-            filho.MdiParent = this;
-            filho.Show();
+            if ((Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
+            {
+                Form8 filho = new Form8(1);
+                filho.MdiParent = this;
+                filho.Show();
+            }
         }
 
         private void atualizarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form8 filho = new Form8(2);
-            filho.MdiParent = this;
-            filho.Show();
+            if ((Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
+            {
+                Form8 filho = new Form8(2);
+                filho.MdiParent = this;
+                filho.Show();
+            }
             
         }
 
         private void excluirModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Form7>().Count() == 0)
+            if ((Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form7 filho = new Form7();
                 filho.MdiParent = this;

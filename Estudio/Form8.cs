@@ -116,6 +116,8 @@ namespace Estudio
             {
                 MessageBox.Show("Selecione uma opção para atualizar!");
             }
+            DAO_Conexao.con.Close();
+
         }
     }
 }
