@@ -149,6 +149,49 @@ namespace Estudio
             return resultado;
         }
 
+        public int verificaAtivo()
+        {
+            MySqlDataReader resultS = null;
+            int resultI = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select ativo from Estudio_Aluno where CPFAluno = '" + CPF + "'", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+                if (resultS.Read())
+                {
+                    resultI = int.Parse(resultS["ativo"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return resultI;
+        }
+
+        public bool tornarAtivo()
+        {
+            bool result = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Aluno set ativo = 0 where CPFAluno = '" + CPF + "'", DAO_Conexao.con);
+                atualiza.ExecuteNonQuery();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return result;
+        }
+
         public bool excluirAluno()
         {
             bool exc = false;

@@ -32,10 +32,12 @@ namespace Estudio
 
         private void cadastrarLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            Form2 filho = new Form2();
-            filho.MdiParent = this;
-            filho.Show();
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            {
+                Form2 filho = new Form2();
+                filho.MdiParent = this;
+                filho.Show();
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -64,9 +66,12 @@ namespace Estudio
 
         private void cadastrarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 filho = new Form3();
-            filho.MdiParent = this;
-            filho.Show();
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            {
+                Form3 filho = new Form3();
+                filho.MdiParent = this;
+                filho.Show();
+            }
         }
      
 
@@ -77,16 +82,22 @@ namespace Estudio
 
         private void excluirAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form4 filho = new Form4();
-            filho.MdiParent = this;
-            filho.Show();
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            {
+                Form4 filho = new Form4();
+                filho.MdiParent = this;
+                filho.Show();
+            }
         }
 
         private void atualizarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form5 filho = new Form5();
-            filho.MdiParent = this;
-            filho.Show();
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            {
+                Form5 filho = new Form5();
+                filho.MdiParent = this;
+                filho.Show();
+            }
         }
 
         private void cadastrarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)

@@ -51,8 +51,37 @@ namespace Estudio
                 {
                     MessageBox.Show("Aluno não cadastrado!");
                 }
+                DAO_Conexao.con.Close();
+                int n = aluno.verificaAtivo();
+                if (n == 1)
+                {
+                    button2.Enabled = true;
+                }
+                else
+                {
+                    button2.Enabled = false;
+                }
+                
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string CPF = txtCPF.Text;
+                Aluno a = new Aluno(CPF);
+                if (a.tornarAtivo())
+                {
+                    MessageBox.Show("Aluno ativado com sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecione uma opção para atualizar!");
             }
             DAO_Conexao.con.Close();
+
         }
     }
 }
