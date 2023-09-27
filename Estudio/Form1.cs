@@ -32,7 +32,7 @@ namespace Estudio
 
         private void cadastrarLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form2 filho = new Form2();
                 filho.MdiParent = this;
@@ -66,7 +66,7 @@ namespace Estudio
 
         private void cadastrarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form3 filho = new Form3();
                 filho.MdiParent = this;
@@ -82,7 +82,7 @@ namespace Estudio
 
         private void excluirAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form4 filho = new Form4();
                 filho.MdiParent = this;
@@ -92,7 +92,7 @@ namespace Estudio
 
         private void atualizarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form5 filho = new Form5();
                 filho.MdiParent = this;
@@ -102,7 +102,7 @@ namespace Estudio
 
         private void cadastrarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if((Application.OpenForms.OfType<Form6>().Count()==0)&&(Application.OpenForms.OfType<Form7>().Count() == 0)&& (Application.OpenForms.OfType<Form8>().Count() == 0))
+            if((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0)&&(Application.OpenForms.OfType<Form6>().Count()==0)&&(Application.OpenForms.OfType<Form7>().Count() == 0)&& (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form6 filho = new Form6();
                 filho.MdiParent = this;
@@ -113,7 +113,7 @@ namespace Estudio
 
         private void consultarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form8 filho = new Form8(1);
                 filho.MdiParent = this;
@@ -123,7 +123,7 @@ namespace Estudio
 
         private void atualizarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form8 filho = new Form8(2);
                 filho.MdiParent = this;
@@ -134,7 +134,7 @@ namespace Estudio
 
         private void excluirModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
             {
                 Form7 filho = new Form7();
                 filho.MdiParent = this;

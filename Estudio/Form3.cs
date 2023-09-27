@@ -25,11 +25,14 @@ namespace Estudio
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             Aluno aluno = new Aluno(txtCPF.Text, txtNome.Text, txtEnd.Text, txtNumero.Text, txtBairro.Text, txtCompl.Text, txtCEP.Text, txtCidade.Text, txtEstado.Text, txtTel.Text, txtEmail.Text);
             if (aluno.cadastrarAluno())
                 MessageBox.Show("Cadastro realizado com sucesso!");
             else
                 MessageBox.Show("Erro no cadastro!");
+            
+            
         }
 
         private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
