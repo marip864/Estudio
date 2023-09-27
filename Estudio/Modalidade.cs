@@ -158,7 +158,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand atualiza = new MySqlCommand("update Estudio_Modalidade set precoModalidade='" + Preco + "', qtdeAulas = "+Qtde_aulas+", qtdeAlunos ="+Qtde_alunos+" where descricaoModalidade ='" +Descricao+ "'", DAO_Conexao.con);
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Modalidade set precoModalidade=" + Preco + ", qtdeAulas = "+Qtde_aulas+", qtdeAlunos ="+Qtde_alunos+" where descricaoModalidade ='" +Descricao+ "'", DAO_Conexao.con);
                 atualiza.ExecuteNonQuery();
                 result = true;
             }
