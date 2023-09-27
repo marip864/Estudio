@@ -74,16 +74,13 @@ namespace Estudio
             }
             Modalidade m = new Modalidade(cbxDescricao.Text);
             MySqlDataReader mdr = m.consultarModalidade();
-            if(mdr.Read() != null) 
+            while(mdr.Read()) 
             {
                 txtPreco.Text = mdr["precoModalidade"].ToString();
                 txtAulas.Text = mdr["qtdeAulas"].ToString();
                 txtAlunos.Text = mdr["qtdeAlunos"].ToString();
             }
-            else
-            {
-                MessageBox.Show("Modalidade não cadastrada!");
-            }
+            
             DAO_Conexao.con.Close();
             if (opcao == 2)
             {
