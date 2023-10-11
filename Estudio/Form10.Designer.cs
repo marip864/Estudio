@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTurma = new System.Windows.Forms.Label();
-            this.lblDiaSemana = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.cbxTurma = new System.Windows.Forms.ComboBox();
-            this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
-            this.cbxHora = new System.Windows.Forms.ComboBox();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.cbxHora = new System.Windows.Forms.ComboBox();
+            this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
+            this.cbxTurma = new System.Windows.Forms.ComboBox();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblDiaSemana = new System.Windows.Forms.Label();
+            this.lblTurma = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,23 +55,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
-            // lblTurma
+            // btnExcluir
             // 
-            this.lblTurma.AutoSize = true;
-            this.lblTurma.Location = new System.Drawing.Point(129, 60);
-            this.lblTurma.Name = "lblTurma";
-            this.lblTurma.Size = new System.Drawing.Size(49, 16);
-            this.lblTurma.TabIndex = 0;
-            this.lblTurma.Text = "Turma:";
+            this.btnExcluir.Location = new System.Drawing.Point(91, 231);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(470, 23);
+            this.btnExcluir.TabIndex = 6;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // lblDiaSemana
+            // cbxHora
             // 
-            this.lblDiaSemana.AutoSize = true;
-            this.lblDiaSemana.Location = new System.Drawing.Point(88, 120);
-            this.lblDiaSemana.Name = "lblDiaSemana";
-            this.lblDiaSemana.Size = new System.Drawing.Size(104, 16);
-            this.lblDiaSemana.TabIndex = 1;
-            this.lblDiaSemana.Text = "Dia da Semana:";
+            this.cbxHora.Enabled = false;
+            this.cbxHora.FormattingEnabled = true;
+            this.cbxHora.Location = new System.Drawing.Point(214, 170);
+            this.cbxHora.Name = "cbxHora";
+            this.cbxHora.Size = new System.Drawing.Size(347, 24);
+            this.cbxHora.TabIndex = 5;
+            this.cbxHora.SelectedIndexChanged += new System.EventHandler(this.cbxHora_SelectedIndexChanged);
+            this.cbxHora.Click += new System.EventHandler(this.cbxHora_Click);
+            // 
+            // cbxDiaSemana
+            // 
+            this.cbxDiaSemana.Enabled = false;
+            this.cbxDiaSemana.FormattingEnabled = true;
+            this.cbxDiaSemana.Location = new System.Drawing.Point(214, 112);
+            this.cbxDiaSemana.Name = "cbxDiaSemana";
+            this.cbxDiaSemana.Size = new System.Drawing.Size(347, 24);
+            this.cbxDiaSemana.TabIndex = 4;
+            this.cbxDiaSemana.SelectedIndexChanged += new System.EventHandler(this.cbxDiaSemana_SelectedIndexChanged);
+            // 
+            // cbxTurma
+            // 
+            this.cbxTurma.FormattingEnabled = true;
+            this.cbxTurma.Location = new System.Drawing.Point(214, 60);
+            this.cbxTurma.Name = "cbxTurma";
+            this.cbxTurma.Size = new System.Drawing.Size(347, 24);
+            this.cbxTurma.TabIndex = 3;
+            this.cbxTurma.SelectedIndexChanged += new System.EventHandler(this.cbxTurma_SelectedIndexChanged);
             // 
             // lblHora
             // 
@@ -82,39 +104,23 @@
             this.lblHora.TabIndex = 2;
             this.lblHora.Text = "Hora:";
             // 
-            // cbxTurma
+            // lblDiaSemana
             // 
-            this.cbxTurma.FormattingEnabled = true;
-            this.cbxTurma.Location = new System.Drawing.Point(214, 60);
-            this.cbxTurma.Name = "cbxTurma";
-            this.cbxTurma.Size = new System.Drawing.Size(347, 24);
-            this.cbxTurma.TabIndex = 3;
+            this.lblDiaSemana.AutoSize = true;
+            this.lblDiaSemana.Location = new System.Drawing.Point(88, 120);
+            this.lblDiaSemana.Name = "lblDiaSemana";
+            this.lblDiaSemana.Size = new System.Drawing.Size(104, 16);
+            this.lblDiaSemana.TabIndex = 1;
+            this.lblDiaSemana.Text = "Dia da Semana:";
             // 
-            // cbxDiaSemana
+            // lblTurma
             // 
-            this.cbxDiaSemana.FormattingEnabled = true;
-            this.cbxDiaSemana.Location = new System.Drawing.Point(214, 112);
-            this.cbxDiaSemana.Name = "cbxDiaSemana";
-            this.cbxDiaSemana.Size = new System.Drawing.Size(347, 24);
-            this.cbxDiaSemana.TabIndex = 4;
-            // 
-            // cbxHora
-            // 
-            this.cbxHora.FormattingEnabled = true;
-            this.cbxHora.Location = new System.Drawing.Point(214, 170);
-            this.cbxHora.Name = "cbxHora";
-            this.cbxHora.Size = new System.Drawing.Size(347, 24);
-            this.cbxHora.TabIndex = 5;
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Location = new System.Drawing.Point(91, 231);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(470, 23);
-            this.btnExcluir.TabIndex = 6;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.lblTurma.AutoSize = true;
+            this.lblTurma.Location = new System.Drawing.Point(109, 62);
+            this.lblTurma.Name = "lblTurma";
+            this.lblTurma.Size = new System.Drawing.Size(83, 16);
+            this.lblTurma.TabIndex = 0;
+            this.lblTurma.Text = "Modalidade:";
             // 
             // Form10
             // 

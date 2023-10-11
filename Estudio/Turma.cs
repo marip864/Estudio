@@ -107,14 +107,16 @@ namespace Estudio
             return resultI;
         }
 
-        public MySqlDataReader consultarTurma()
+        
+
+        public MySqlDataReader consultarTurma(int i)
         {
             MySqlDataReader result = null;
 
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("select diasemanaTurma from Estudio_Turma where idModalidade ="+i+"", DAO_Conexao.con);
                 result = consulta.ExecuteReader();
             }
             catch (Exception ex)
@@ -125,10 +127,22 @@ namespace Estudio
             return result;
         }
 
-        public MySqlDataReader consultarTurma01()
+        public MySqlDataReader consultarTurma01(string s,int i)
         {
-            MySqlDataReader resultS = null;
-            return resultS;
+            MySqlDataReader result = null;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select horaTurma from Estudio_Turma where diasemanaTurma = '" + s + "' and idModalidade ="+i+"", DAO_Conexao.con);
+                result = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return result;
         }
 
         /*public int verificaAtivo()

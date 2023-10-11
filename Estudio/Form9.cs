@@ -55,24 +55,9 @@ namespace Estudio
             }
         }
 
-        private void mostra(string m)
-        {
-            txtModalidade.Text = m;
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            mostra(getModalidadeId());
-        }
-
-        private string getModalidadeId()
-        {
-            return dataGridView1.CurrentCell.Value.ToString();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+            txtModalidade.Text = dataGridView1.CurrentCell.Value.ToString();
         }
     }
 }
