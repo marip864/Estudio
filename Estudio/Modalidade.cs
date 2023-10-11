@@ -15,7 +15,7 @@ namespace Estudio
     {
         private string Descricao;
         private float Preco;
-        private int qtde_alunos, qtde_aulas;
+        private int qtde_alunos, qtde_aulas, idModalidade;
 
         public Modalidade(string descricao, float preco, int qtde_alunos, int qtde_aulas)
         {
@@ -39,6 +39,8 @@ namespace Estudio
         public float Preco1 { get => Preco; set => Preco = value; }
         public int Qtde_alunos { get => qtde_alunos; set => qtde_alunos = value; }
         public int Qtde_aulas { get => qtde_aulas; set => qtde_aulas = value; }
+        public int IdModalidade { get => idModalidade; }
+
         public bool cadastrarModalidade()
         {
             bool cad = false;
