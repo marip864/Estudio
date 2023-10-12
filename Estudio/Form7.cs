@@ -30,7 +30,7 @@ namespace Estudio
             if(cbxDescricao.Text!="")
             {
                 Modalidade modalidade = new Modalidade();
-                modalidade.excluirModalidade(cbxDescricao.Text);
+                modalidade.excluirModalidade(cbxDescricao.Text,modalidade.selecionaId(cbxDescricao.Text));
                 MessageBox.Show("Excluído com sucesso!");
             }
             else

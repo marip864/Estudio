@@ -16,11 +16,15 @@ namespace Estudio
         public Form10()
         {
             InitializeComponent();
-            Modalidade exc = new Modalidade();
-            MySqlDataReader r = exc.consultarTodasModalidade01();
+            Turma exc = new Turma();
+            MySqlDataReader r = exc.consultarTodasTurmas();
             while (r.Read())
             {
-                cbxTurma.Items.Add(r["descricaoModalidade"].ToString());
+                if (r["nomeTurma"].ToString()!=cbxTurma.Items.ToString())
+                {
+                    cbxTurma.Items.Add(r["nomeTurma"].ToString());
+                }
+                    
             }
             DAO_Conexao.con.Close();
         }
@@ -30,7 +34,7 @@ namespace Estudio
             if ((cbxTurma.Text != "")&&(cbxDiaSemana.Text != "")&&(cbxHora.Text != ""))
             {
                 Turma turma = new Turma();
-                turma.excluirTurma(cbxTurma.Text);
+                turma.excluirTurma(turma.selecionaIdTurma(cbxTurma.Text),cbxDiaSemana.Text,cbxHora.Text);
                 MessageBox.Show("Excluído com sucesso!");
             }
             else
@@ -41,14 +45,22 @@ namespace Estudio
 
         private void cbxTurma_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbxDiaSemana.Items.Clear();  
             cbxDiaSemana.Enabled = true;
             Turma exc = new Turma();
-            MySqlDataReader r = exc.consultarTurma(exc.selecionaId(cbxTurma.Text));
+            MySqlDataReader r = exc.consultarTurma(exc.selecionaIdTurma(cbxTurma.Text));
             while (r.Read())
             {
                 cbxDiaSemana.Items.Add(r["diasemanaTurma"].ToString());
             }
+            if(cbxDiaSemana.Items.Count == 0)
+            {
+                cbxDiaSemana.Enabled = false;
+            }
+            
             DAO_Conexao.con.Close();
+                       
+            
         }
 
         private void cbxHora_Click(object sender, EventArgs e)
@@ -65,7 +77,7 @@ namespace Estudio
         {
             cbxHora.Enabled = true;
             Turma exc = new Turma();
-            MySqlDataReader r = exc.consultarTurma01(cbxDiaSemana.Text, exc.selecionaId(cbxTurma.Text));
+            MySqlDataReader r = exc.consultarTurma01(cbxDiaSemana.Text, exc.selecionaIdTurma(cbxTurma.Text));
             while (r.Read())
             {
                 cbxHora.Items.Add(r["horaTurma"].ToString());

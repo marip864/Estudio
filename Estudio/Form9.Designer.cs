@@ -33,7 +33,6 @@
             this.lblQtde_alunos = new System.Windows.Forms.Label();
             this.txtHoras = new System.Windows.Forms.MaskedTextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.txtDiaSemana = new System.Windows.Forms.TextBox();
             this.txtProfessor = new System.Windows.Forms.TextBox();
             this.txtModalidade = new System.Windows.Forms.TextBox();
             this.lblHora = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.lblProfessor = new System.Windows.Forms.Label();
             this.lblModalidade = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
             this.modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -48,11 +48,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxDiaSemana);
             this.groupBox1.Controls.Add(this.txtAlunos);
             this.groupBox1.Controls.Add(this.lblQtde_alunos);
             this.groupBox1.Controls.Add(this.txtHoras);
             this.groupBox1.Controls.Add(this.btnCadastrar);
-            this.groupBox1.Controls.Add(this.txtDiaSemana);
             this.groupBox1.Controls.Add(this.txtProfessor);
             this.groupBox1.Controls.Add(this.txtModalidade);
             this.groupBox1.Controls.Add(this.lblHora);
@@ -76,11 +76,12 @@
             // lblQtde_alunos
             // 
             this.lblQtde_alunos.AutoSize = true;
-            this.lblQtde_alunos.Location = new System.Drawing.Point(317, 185);
+            this.lblQtde_alunos.Location = new System.Drawing.Point(306, 185);
             this.lblQtde_alunos.Name = "lblQtde_alunos";
             this.lblQtde_alunos.Size = new System.Drawing.Size(119, 16);
             this.lblQtde_alunos.TabIndex = 10;
             this.lblQtde_alunos.Text = "Máximo de alunos:";
+            this.lblQtde_alunos.Click += new System.EventHandler(this.lblQtde_alunos_Click);
             // 
             // txtHoras
             // 
@@ -100,13 +101,6 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // txtDiaSemana
-            // 
-            this.txtDiaSemana.Location = new System.Drawing.Point(179, 136);
-            this.txtDiaSemana.Name = "txtDiaSemana";
-            this.txtDiaSemana.Size = new System.Drawing.Size(400, 22);
-            this.txtDiaSemana.TabIndex = 6;
-            // 
             // txtProfessor
             // 
             this.txtProfessor.Location = new System.Drawing.Point(179, 94);
@@ -124,7 +118,7 @@
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(133, 182);
+            this.lblHora.Location = new System.Drawing.Point(127, 182);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(40, 16);
             this.lblHora.TabIndex = 3;
@@ -133,7 +127,7 @@
             // lblDiaSemana
             // 
             this.lblDiaSemana.AutoSize = true;
-            this.lblDiaSemana.Location = new System.Drawing.Point(73, 139);
+            this.lblDiaSemana.Location = new System.Drawing.Point(65, 139);
             this.lblDiaSemana.Name = "lblDiaSemana";
             this.lblDiaSemana.Size = new System.Drawing.Size(104, 16);
             this.lblDiaSemana.TabIndex = 2;
@@ -142,7 +136,7 @@
             // lblProfessor
             // 
             this.lblProfessor.AutoSize = true;
-            this.lblProfessor.Location = new System.Drawing.Point(109, 100);
+            this.lblProfessor.Location = new System.Drawing.Point(99, 100);
             this.lblProfessor.Name = "lblProfessor";
             this.lblProfessor.Size = new System.Drawing.Size(68, 16);
             this.lblProfessor.TabIndex = 1;
@@ -151,7 +145,7 @@
             // lblModalidade
             // 
             this.lblModalidade.AutoSize = true;
-            this.lblModalidade.Location = new System.Drawing.Point(94, 55);
+            this.lblModalidade.Location = new System.Drawing.Point(84, 55);
             this.lblModalidade.Name = "lblModalidade";
             this.lblModalidade.Size = new System.Drawing.Size(83, 16);
             this.lblModalidade.TabIndex = 0;
@@ -170,11 +164,27 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // cbxDiaSemana
+            // 
+            this.cbxDiaSemana.FormattingEnabled = true;
+            this.cbxDiaSemana.Items.AddRange(new object[] {
+            "Segunda",
+            "Quinta",
+            "Sexta",
+            "Segunda e Quarta",
+            "Terça e Quinta",
+            "Quarta e Sexta"});
+            this.cbxDiaSemana.Location = new System.Drawing.Point(179, 136);
+            this.cbxDiaSemana.Name = "cbxDiaSemana";
+            this.cbxDiaSemana.Size = new System.Drawing.Size(400, 24);
+            this.cbxDiaSemana.TabIndex = 12;
+            // 
             // modalidade
             // 
             this.modalidade.HeaderText = "Modalidade";
             this.modalidade.MinimumWidth = 6;
             this.modalidade.Name = "modalidade";
+            this.modalidade.ReadOnly = true;
             this.modalidade.Width = 125;
             // 
             // Form9
@@ -197,7 +207,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.TextBox txtDiaSemana;
         private System.Windows.Forms.TextBox txtProfessor;
         private System.Windows.Forms.TextBox txtModalidade;
         private System.Windows.Forms.Label lblHora;
@@ -208,6 +217,7 @@
         private System.Windows.Forms.MaskedTextBox txtHoras;
         private System.Windows.Forms.TextBox txtAlunos;
         private System.Windows.Forms.Label lblQtde_alunos;
+        private System.Windows.Forms.ComboBox cbxDiaSemana;
         private System.Windows.Forms.DataGridViewTextBoxColumn modalidade;
     }
 }

@@ -27,21 +27,34 @@ namespace Estudio
         
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            
             try
-            {
+            {   
+                int cont = 0;
+                string nome = "";
                 int qtd_alunos = int.Parse(txtAlunos.Text);
                 string professor = txtProfessor.Text;
-                string dia_semana = txtDiaSemana.Text;
+                string dia_semana = cbxDiaSemana.Text;
                 string horas = txtHoras.Text;
                 Turma t = new Turma();
                 int modalidade = t.selecionaId(txtModalidade.Text);
-                Turma turma = new Turma(professor,dia_semana,horas,modalidade,qtd_alunos);
+                if((cbxDiaSemana.SelectedIndex==0)|| (cbxDiaSemana.SelectedIndex == 1)||(cbxDiaSemana.SelectedIndex == 2))
+                {
+                    cont = 1;
+                    nome = string.Concat(txtModalidade.Text + " - " + cont.ToString() + "x");   
+                }
+                if ((cbxDiaSemana.SelectedIndex == 3) || (cbxDiaSemana.SelectedIndex == 4) || (cbxDiaSemana.SelectedIndex == 5))
+                {
+                    cont = 2;
+                    nome = string.Concat(txtModalidade.Text + " - " + cont.ToString() + "x");
+                }
+                Turma turma = new Turma(professor, dia_semana, horas, modalidade, qtd_alunos, nome);
                 if (turma.cadastrarTurma())
                 {
                     MessageBox.Show("Cadastro realizado com sucesso!");
                     txtAlunos.Text = "";
                     txtProfessor.Text = "";
-                    txtDiaSemana.Text = "";
+                    cbxDiaSemana.Text = "";
                     txtHoras.Text = "";
                     txtModalidade.Text = "";
                 }
@@ -58,6 +71,11 @@ namespace Estudio
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtModalidade.Text = dataGridView1.CurrentCell.Value.ToString();
+        }
+
+        private void lblQtde_alunos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -116,11 +116,11 @@
             // lblTurma
             // 
             this.lblTurma.AutoSize = true;
-            this.lblTurma.Location = new System.Drawing.Point(109, 62);
+            this.lblTurma.Location = new System.Drawing.Point(129, 60);
             this.lblTurma.Name = "lblTurma";
-            this.lblTurma.Size = new System.Drawing.Size(83, 16);
+            this.lblTurma.Size = new System.Drawing.Size(49, 16);
             this.lblTurma.TabIndex = 0;
-            this.lblTurma.Text = "Modalidade:";
+            this.lblTurma.Text = "Turma:";
             // 
             // Form10
             // 

@@ -143,6 +143,7 @@ namespace Estudio
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand atualiza = new MySqlCommand("update Estudio_Modalidade set ativa = 0 where descricaoModalidade = '"+Descricao+"'", DAO_Conexao.con);
+                MySqlCommand atualizat = new MySqlCommand("update Estudio_Turma set ativa = 0 where idModalidade = '" + IdModalidade + "'", DAO_Conexao.con);
                 atualiza.ExecuteNonQuery();
                 result = true;
             }
@@ -175,7 +176,32 @@ namespace Estudio
             return result;
         }
 
-        public bool excluirModalidade(string desc)
+        public int selecionaId(string s)
+        {
+            MySqlDataReader resultS = null;
+            int resultI = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select idEstudio_Modalidade from Estudio_Modalidade where descricaoModalidade = '" + s + "'", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+                if (resultS.Read())
+                {
+                    resultI = int.Parse(resultS["idEstudio_Modalidade"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return resultI;
+        }
+
+        public bool excluirModalidade(string desc,int i)
         {
             string exclusao = desc;
             bool result = false;
@@ -183,6 +209,7 @@ namespace Estudio
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidade set ativa = 1 where descricaoModalidade = '" + exclusao + "'", DAO_Conexao.con);
+                MySqlCommand excluit = new MySqlCommand("update Estudio_Turma set ativa = 1 where idModalidade = '" + i + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 result = true;
             }

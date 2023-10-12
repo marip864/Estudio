@@ -161,5 +161,25 @@ namespace Estudio
                 filho.Show();
             }
         }
+
+        private void atualizarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
+            {
+                Form11 filho = new Form11(1);
+                filho.MdiParent = this;
+                filho.Show();
+            }
+        }
+
+        private void consultarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0))
+            {
+                Form11 filho = new Form11(2);
+                filho.MdiParent = this;
+                filho.Show();
+            }
+        }
     }
 }
