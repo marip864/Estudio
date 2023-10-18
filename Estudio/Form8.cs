@@ -17,25 +17,27 @@ namespace Estudio
         public Form8(int op)
         {
             InitializeComponent();
-            if(op==1)
+            Modalidade ac = new Modalidade();
+            MySqlDataReader r;
+            if (op == 1)
             {
                 button1.Visible = false;
                 button2.Visible = false;
                 opcao = 1;
+                r = ac.consultarTodasModalidade01();
             }
             else
             {
                 button1.Text = "Atualizar";
                 button2.Enabled = false;
                 opcao = 2;
+                r = ac.consultarTodasModalidade();
             }
-            Modalidade ac = new Modalidade();
-            MySqlDataReader r = ac.consultarTodasModalidade();
             while (r.Read())
             {
                 cbxDescricao.Items.Add(r["descricaoModalidade"].ToString());
             }
-            
+
             DAO_Conexao.con.Close();
         }
 
@@ -52,11 +54,11 @@ namespace Estudio
                     MessageBox.Show("Atualização realizada com sucesso!");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Selecione uma opção para atualizar!");
             }
-            
+
         }
 
         private void Form8_Load(object sender, EventArgs e)
@@ -71,16 +73,17 @@ namespace Estudio
                 txtPreco.Enabled = false;
                 txtAulas.Enabled = false;
                 txtAlunos.Enabled = false;
+                cbxDescricao.Enabled = false;
             }
             Modalidade m = new Modalidade(cbxDescricao.Text);
             MySqlDataReader mdr = m.consultarModalidade();
-            while(mdr.Read()) 
+            while (mdr.Read())
             {
                 txtPreco.Text = mdr["precoModalidade"].ToString();
                 txtAulas.Text = mdr["qtdeAulas"].ToString();
                 txtAlunos.Text = mdr["qtdeAlunos"].ToString();
             }
-            
+
             DAO_Conexao.con.Close();
             if (opcao == 2)
             {

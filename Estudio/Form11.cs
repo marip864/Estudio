@@ -21,7 +21,6 @@ namespace Estudio
             {
                 btnAtualizar.Visible = false;
                 btnAtivo.Visible = false;
-                groupBox1.Visible = false;
                 opcao = 2;
             }
             else
@@ -31,9 +30,9 @@ namespace Estudio
                 opcao = 1;
             }
             Turma con_t = new Turma();
-            
-            MySqlDataReader r = con_t.consultarTodasTurmas();
-          
+
+            MySqlDataReader r = con_t.consultarTodasTurmas02();
+
             while (r.Read())
             {
                 dataGridView1.Rows.Add(r["idEstudio_Turma"].ToString(), r["nomeTurma"].ToString(), r["professorTurma"].ToString(), r["diasemanaTurma"].ToString(), r["horaTurma"].ToString(), r["nalunosmatriculadosTurma"].ToString());
@@ -51,7 +50,7 @@ namespace Estudio
                 Turma t = new Turma();
                 int i = t.consultarTodasTurmas01(txtModalidade.Text);
                 string m = t.selecionaModalidade(i);
-               
+
                 if ((cbxDiaSemana.SelectedIndex == 0) || (cbxDiaSemana.SelectedIndex == 1) || (cbxDiaSemana.SelectedIndex == 2))
                 {
                     cont = 1;
@@ -76,11 +75,30 @@ namespace Estudio
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (opcao == 1)
+
+        }
+        private void btnAtivo_Click(object sender, EventArgs e)
+        {
+            try
             {
-                txtId.Enabled = false;
-                txtModalidade.Enabled = false;
+                int id = int.Parse(txtId.Text);
+                Turma t = new Turma(id);
+                if (t.tornarAtivo())
+                {
+                    MessageBox.Show("Turma ativada com sucesso!");
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecione uma opção para atualizar!");
+            }
+            DAO_Conexao.con.Close();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Enabled = false;
+            txtModalidade.Enabled = false;
             txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txtModalidade.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtProfessor.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -100,23 +118,13 @@ namespace Estudio
                     btnAtivo.Enabled = false;
                 }
             }
-        }
-        private void btnAtivo_Click(object sender, EventArgs e)
-        {
-            try
+            if (opcao == 2)
             {
-                int id = int.Parse(txtId.Text);
-                Turma t = new Turma(id);
-                if (t.tornarAtivo())
-                {
-                    MessageBox.Show("Turma ativada com sucesso!");
-                }
+                txtProfessor.Enabled = false;
+                cbxDiaSemana.Enabled = false;
+                txtHora.Enabled = false;
+                txtAlunos.Enabled = false;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Selecione uma opção para atualizar!");
-            }
-            DAO_Conexao.con.Close();
         }
     }
 }

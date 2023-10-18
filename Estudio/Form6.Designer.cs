@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.txtPreco = new System.Windows.Forms.TextBox();
-            this.txtAlunos = new System.Windows.Forms.TextBox();
-            this.txtAulas = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.txtAulas = new System.Windows.Forms.TextBox();
+            this.txtAlunos = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,32 +59,48 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidades";
             // 
-            // label1
+            // btnCadastrar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Descrição:";
+            this.btnCadastrar.Enabled = false;
+            this.btnCadastrar.Location = new System.Drawing.Point(63, 255);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(535, 23);
+            this.btnCadastrar.TabIndex = 8;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // label2
+            // txtAulas
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Preço:";
+            this.txtAulas.Enabled = false;
+            this.txtAulas.Location = new System.Drawing.Point(176, 196);
+            this.txtAulas.Name = "txtAulas";
+            this.txtAulas.Size = new System.Drawing.Size(422, 22);
+            this.txtAulas.TabIndex = 7;
             // 
-            // label3
+            // txtAlunos
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Qtde de Alunos:";
+            this.txtAlunos.Enabled = false;
+            this.txtAlunos.Location = new System.Drawing.Point(176, 159);
+            this.txtAlunos.Name = "txtAlunos";
+            this.txtAlunos.Size = new System.Drawing.Size(422, 22);
+            this.txtAlunos.TabIndex = 6;
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Enabled = false;
+            this.txtPreco.Location = new System.Drawing.Point(176, 124);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(422, 22);
+            this.txtPreco.TabIndex = 5;
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(176, 83);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(422, 22);
+            this.txtDescricao.TabIndex = 4;
+            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
             // 
             // label4
             // 
@@ -95,43 +111,32 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Qtde de Aulas:";
             // 
-            // txtDescricao
+            // label3
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(176, 83);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(422, 22);
-            this.txtDescricao.TabIndex = 4;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(60, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Qtde de Alunos:";
             // 
-            // txtPreco
+            // label2
             // 
-            this.txtPreco.Location = new System.Drawing.Point(176, 124);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(422, 22);
-            this.txtPreco.TabIndex = 5;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(116, 124);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Preço:";
             // 
-            // txtAlunos
+            // label1
             // 
-            this.txtAlunos.Location = new System.Drawing.Point(176, 159);
-            this.txtAlunos.Name = "txtAlunos";
-            this.txtAlunos.Size = new System.Drawing.Size(422, 22);
-            this.txtAlunos.TabIndex = 6;
-            // 
-            // txtAulas
-            // 
-            this.txtAulas.Location = new System.Drawing.Point(176, 196);
-            this.txtAulas.Name = "txtAulas";
-            this.txtAulas.Size = new System.Drawing.Size(422, 22);
-            this.txtAulas.TabIndex = 7;
-            // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.Location = new System.Drawing.Point(63, 255);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(535, 23);
-            this.btnCadastrar.TabIndex = 8;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(88, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descrição:";
             // 
             // Form6
             // 

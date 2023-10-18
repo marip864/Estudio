@@ -14,27 +14,50 @@ namespace Estudio
 {
     public partial class Form5 : Form
     {
-        public Form5()
+        int opcao = 0;
+        public Form5(int op)
         {
             InitializeComponent();
+            if (op == 1)
+            {
+                button1.Visible = false;
+                button2.Visible = false;
+                opcao = 1;
+            }
+            if (op == 2)
+            {
+                opcao = 2;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Aluno aluno = new Aluno(txtCPF.Text, txtNome.Text, txtEnd.Text, txtNumero.Text, txtBairro.Text, txtCompl.Text, txtCEP.Text, txtCidade.Text, txtEstado.Text, txtTel.Text, txtEmail.Text);
-            if(aluno.atualizarAluno() )
+            if (aluno.atualizarAluno())
             {
                 MessageBox.Show("Atualização realizada com sucesso!");
             }
+            txtNome.Text = "";
+            txtEnd.Text = "";
+            txtNumero.Text = "";
+            txtBairro.Text = "";
+            txtCompl.Text = "";
+            txtCEP.Text = "";
+            txtCidade.Text = "";
+            txtEstado.Text = "";
+            txtTel.Text = "";
+            txtEmail.Text = "";
+            txtCPF.Text = "";
+            txtCPF.Enabled = true;
         }
 
         private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
         {
             Aluno aluno = new Aluno(txtCPF.Text);
-            if(e.KeyChar==13)
+            if (e.KeyChar == 13)
             {
                 MySqlDataReader dr = aluno.consultarAluno01();
-                if(dr.Read())
+                if (dr.Read())
                 {
                     txtNome.Text = dr["nomeAluno"].ToString();
                     txtEnd.Text = dr["ruaAluno"].ToString();
@@ -46,6 +69,20 @@ namespace Estudio
                     txtEstado.Text = dr["estadoAluno"].ToString();
                     txtTel.Text = dr["telefoneAluno"].ToString();
                     txtEmail.Text = dr["emailAluno"].ToString();
+                    txtCPF.Enabled = false;
+                    if (opcao == 1)
+                    {
+                        txtNome.Enabled = false;
+                        txtEnd.Enabled = false;
+                        txtNumero.Enabled = false;
+                        txtBairro.Enabled = false;
+                        txtCompl.Enabled = false;
+                        txtCEP.Enabled = false;
+                        txtCidade.Enabled = false;
+                        txtEstado.Enabled = false;
+                        txtTel.Enabled = false;
+                        txtEmail.Enabled = false;
+                    }
                 }
                 else
                 {
@@ -61,7 +98,7 @@ namespace Estudio
                 {
                     button2.Enabled = false;
                 }
-                
+
             }
         }
 

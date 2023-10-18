@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
+            this.btnAtivo = new System.Windows.Forms.Button();
+            this.lblModaliade = new System.Windows.Forms.Label();
+            this.txtModalidade = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.txtHora = new System.Windows.Forms.MaskedTextBox();
             this.lblAlunos = new System.Windows.Forms.Label();
             this.txtAlunos = new System.Windows.Forms.TextBox();
@@ -38,12 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.txtModalidade = new System.Windows.Forms.TextBox();
-            this.lblModaliade = new System.Windows.Forms.Label();
-            this.btnAtivo = new System.Windows.Forms.Button();
-            this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.turma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +76,63 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Atualizar";
+            // 
+            // cbxDiaSemana
+            // 
+            this.cbxDiaSemana.FormattingEnabled = true;
+            this.cbxDiaSemana.Items.AddRange(new object[] {
+            "Segunda",
+            "Quinta",
+            "Sexta",
+            "Segunda e Quarta",
+            "Terça e Quinta",
+            "Quarta e Sexta"});
+            this.cbxDiaSemana.Location = new System.Drawing.Point(175, 111);
+            this.cbxDiaSemana.Name = "cbxDiaSemana";
+            this.cbxDiaSemana.Size = new System.Drawing.Size(456, 24);
+            this.cbxDiaSemana.TabIndex = 14;
+            // 
+            // btnAtivo
+            // 
+            this.btnAtivo.Location = new System.Drawing.Point(376, 199);
+            this.btnAtivo.Name = "btnAtivo";
+            this.btnAtivo.Size = new System.Drawing.Size(255, 23);
+            this.btnAtivo.TabIndex = 13;
+            this.btnAtivo.Text = "Tornar Ativo";
+            this.btnAtivo.UseVisualStyleBackColor = true;
+            this.btnAtivo.Click += new System.EventHandler(this.btnAtivo_Click);
+            // 
+            // lblModaliade
+            // 
+            this.lblModaliade.AutoSize = true;
+            this.lblModaliade.Location = new System.Drawing.Point(418, 28);
+            this.lblModaliade.Name = "lblModaliade";
+            this.lblModaliade.Size = new System.Drawing.Size(49, 16);
+            this.lblModaliade.TabIndex = 12;
+            this.lblModaliade.Text = "Turma:";
+            // 
+            // txtModalidade
+            // 
+            this.txtModalidade.Location = new System.Drawing.Point(473, 25);
+            this.txtModalidade.Name = "txtModalidade";
+            this.txtModalidade.Size = new System.Drawing.Size(158, 22);
+            this.txtModalidade.TabIndex = 11;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(138, 31);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(21, 16);
+            this.lblId.TabIndex = 10;
+            this.lblId.Text = "Id:";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(175, 25);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(144, 22);
+            this.txtId.TabIndex = 9;
             // 
             // txtHora
             // 
@@ -165,64 +222,8 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(692, 150);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(175, 25);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(144, 22);
-            this.txtId.TabIndex = 9;
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(138, 31);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(21, 16);
-            this.lblId.TabIndex = 10;
-            this.lblId.Text = "Id:";
-            // 
-            // txtModalidade
-            // 
-            this.txtModalidade.Location = new System.Drawing.Point(473, 25);
-            this.txtModalidade.Name = "txtModalidade";
-            this.txtModalidade.Size = new System.Drawing.Size(158, 22);
-            this.txtModalidade.TabIndex = 11;
-            // 
-            // lblModaliade
-            // 
-            this.lblModaliade.AutoSize = true;
-            this.lblModaliade.Location = new System.Drawing.Point(418, 28);
-            this.lblModaliade.Name = "lblModaliade";
-            this.lblModaliade.Size = new System.Drawing.Size(49, 16);
-            this.lblModaliade.TabIndex = 12;
-            this.lblModaliade.Text = "Turma:";
-            // 
-            // btnAtivo
-            // 
-            this.btnAtivo.Location = new System.Drawing.Point(376, 199);
-            this.btnAtivo.Name = "btnAtivo";
-            this.btnAtivo.Size = new System.Drawing.Size(255, 23);
-            this.btnAtivo.TabIndex = 13;
-            this.btnAtivo.Text = "Tornar Ativo";
-            this.btnAtivo.UseVisualStyleBackColor = true;
-            this.btnAtivo.Click += new System.EventHandler(this.btnAtivo_Click);
-            // 
-            // cbxDiaSemana
-            // 
-            this.cbxDiaSemana.FormattingEnabled = true;
-            this.cbxDiaSemana.Items.AddRange(new object[] {
-            "Segunda",
-            "Quinta",
-            "Sexta",
-            "Segunda e Quarta",
-            "Terça e Quinta",
-            "Quarta e Sexta"});
-            this.cbxDiaSemana.Location = new System.Drawing.Point(175, 111);
-            this.cbxDiaSemana.Name = "cbxDiaSemana";
-            this.cbxDiaSemana.Size = new System.Drawing.Size(456, 24);
-            this.cbxDiaSemana.TabIndex = 14;
             // 
             // id
             // 

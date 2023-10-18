@@ -19,17 +19,17 @@ namespace Estudio
             InitializeComponent();
             Modalidade con_mod = new Modalidade();
             MySqlDataReader r = con_mod.consultarTodasModalidade();
-            while(r.Read())
+            while (r.Read())
                 dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
             DAO_Conexao.con.Close();
         }
 
-        
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            
+
             try
-            {   
+            {
                 int cont = 0;
                 string nome = "";
                 int qtd_alunos = int.Parse(txtAlunos.Text);
@@ -38,10 +38,10 @@ namespace Estudio
                 string horas = txtHoras.Text;
                 Turma t = new Turma();
                 int modalidade = t.selecionaId(txtModalidade.Text);
-                if((cbxDiaSemana.SelectedIndex==0)|| (cbxDiaSemana.SelectedIndex == 1)||(cbxDiaSemana.SelectedIndex == 2))
+                if ((cbxDiaSemana.SelectedIndex == 0) || (cbxDiaSemana.SelectedIndex == 1) || (cbxDiaSemana.SelectedIndex == 2))
                 {
                     cont = 1;
-                    nome = string.Concat(txtModalidade.Text + " - " + cont.ToString() + "x");   
+                    nome = string.Concat(txtModalidade.Text + " - " + cont.ToString() + "x");
                 }
                 if ((cbxDiaSemana.SelectedIndex == 3) || (cbxDiaSemana.SelectedIndex == 4) || (cbxDiaSemana.SelectedIndex == 5))
                 {
@@ -49,18 +49,33 @@ namespace Estudio
                     nome = string.Concat(txtModalidade.Text + " - " + cont.ToString() + "x");
                 }
                 Turma turma = new Turma(professor, dia_semana, horas, modalidade, qtd_alunos, nome);
-                if (turma.cadastrarTurma())
+
+                if (turma.consultarIgual(txtProfessor.Text))
                 {
-                    MessageBox.Show("Cadastro realizado com sucesso!");
-                    txtAlunos.Text = "";
-                    txtProfessor.Text = "";
-                    cbxDiaSemana.Text = "";
-                    txtHoras.Text = "";
-                    txtModalidade.Text = "";
+                    MessageBox.Show("O professor já tem aula nesse dia e horário!");
+                }
+                else
+                {
+                    if (turma.cadastrarTurma())
+                    {
+                        MessageBox.Show("Cadastro realizado com sucesso!");
+                        txtAlunos.Text = "";
+                        txtProfessor.Text = "";
+                        cbxDiaSemana.Text = "";
+                        txtHoras.Text = "";
+                        txtModalidade.Text = "";
+                        txtAlunos.Enabled = false;
+                        txtProfessor.Enabled = false;
+                        cbxDiaSemana.Enabled = false;
+                        txtHoras.Enabled = false;
+                        txtModalidade.Enabled = false;
+                        btnCadastrar.Enabled = false;
+                    }
+                    else
+                        MessageBox.Show("Erro no cadastro!");
+
                 }
 
-                else
-                    MessageBox.Show("Erro no cadastro!");
             }
             catch (Exception ex)
             {
@@ -70,12 +85,42 @@ namespace Estudio
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtModalidade.Text = dataGridView1.CurrentCell.Value.ToString();
+
         }
 
         private void lblQtde_alunos_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtProfessor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                cbxDiaSemana.Enabled = true;
+        }
+
+        private void cbxDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtHoras.Enabled = true;
+        }
+
+        private void txtHoras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                txtAlunos.Enabled = true;
+        }
+
+        private void txtAlunos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                btnCadastrar.Enabled = true;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtModalidade.Enabled = true;
+            txtProfessor.Enabled = true;
+            txtModalidade.Text = dataGridView1.CurrentCell.Value.ToString();
         }
     }
 }

@@ -25,11 +25,11 @@ namespace Estudio
         private void maskedTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             Aluno aluno = new Aluno(maskedTextBox1.Text);
-            if(e.KeyChar==13)
+            if (e.KeyChar == 13)
             {
-                if(aluno.consultarAluno())
+                if (aluno.consultarAluno())
                 {
-                    if(aluno.excluirAluno())
+                    if (aluno.excluirAluno())
                     {
                         MessageBox.Show("Aluno excluído!");
                     }
@@ -38,7 +38,9 @@ namespace Estudio
                 {
                     MessageBox.Show("Aluno não existe!");
                 }
+                maskedTextBox1.Text = "";
             }
+            
         }
 
         private void Form4_Load(object sender, EventArgs e)

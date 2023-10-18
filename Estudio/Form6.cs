@@ -12,8 +12,10 @@ namespace Estudio
 {
     public partial class Form6 : Form
     {
+
         public Form6()
         {
+
             InitializeComponent();
         }
 
@@ -24,24 +26,49 @@ namespace Estudio
                 float preco = float.Parse(txtPreco.Text);
                 int qtd_alunos = int.Parse(txtAlunos.Text);
                 int qtd_aulas = int.Parse(txtAulas.Text);
-                Modalidade modalidade = new Modalidade(txtDescricao.Text,preco,qtd_alunos,qtd_aulas);
+                Modalidade modalidade = new Modalidade(txtDescricao.Text, preco, qtd_alunos, qtd_aulas);
                 if (modalidade.cadastrarModalidade())
                 {
                     MessageBox.Show("Cadastro realizado com sucesso!");
-                    txtDescricao.Text = "";
-                    txtPreco.Text = "";
-                    txtAlunos.Text = "";
-                    txtAulas.Text = "";
                 }
-                    
+
                 else
                     MessageBox.Show("Erro no cadastro!");
+                txtDescricao.Text = "";
+                txtPreco.Text = "";
+                txtAlunos.Text = "";
+                txtAulas.Text = "";
+                txtPreco.Enabled = false;
+                txtAlunos.Enabled = false;
+                txtAulas.Enabled = false;
+                btnCadastrar.Enabled = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Os campos não podem ser nulos!");
             }
-            
+
+        }
+
+        private void txtDescricao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Modalidade m = new Modalidade();
+                if (m.existeModalidade(txtDescricao.Text))
+                {
+                    MessageBox.Show("Já existe essa modalidade!");
+                    txtDescricao.Text = "";
+                }
+                else
+                {
+                    txtAlunos.Enabled = true;
+                    txtAulas.Enabled = true;
+                    txtPreco.Enabled = true;
+                    btnCadastrar.Enabled = true;
+                }
+            }
+
         }
     }
 }

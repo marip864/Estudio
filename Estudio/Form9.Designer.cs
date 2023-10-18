@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
             this.txtAlunos = new System.Windows.Forms.TextBox();
             this.lblQtde_alunos = new System.Windows.Forms.Label();
             this.txtHoras = new System.Windows.Forms.MaskedTextBox();
@@ -40,7 +41,6 @@
             this.lblProfessor = new System.Windows.Forms.Label();
             this.lblModalidade = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
             this.modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -66,12 +66,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
+            // cbxDiaSemana
+            // 
+            this.cbxDiaSemana.Enabled = false;
+            this.cbxDiaSemana.FormattingEnabled = true;
+            this.cbxDiaSemana.Items.AddRange(new object[] {
+            "Segunda",
+            "Quinta",
+            "Sexta",
+            "Segunda e Quarta",
+            "Terça e Quinta",
+            "Quarta e Sexta"});
+            this.cbxDiaSemana.Location = new System.Drawing.Point(179, 136);
+            this.cbxDiaSemana.Name = "cbxDiaSemana";
+            this.cbxDiaSemana.Size = new System.Drawing.Size(400, 24);
+            this.cbxDiaSemana.TabIndex = 12;
+            this.cbxDiaSemana.SelectedIndexChanged += new System.EventHandler(this.cbxDiaSemana_SelectedIndexChanged);
+            // 
             // txtAlunos
             // 
+            this.txtAlunos.Enabled = false;
             this.txtAlunos.Location = new System.Drawing.Point(442, 182);
             this.txtAlunos.Name = "txtAlunos";
             this.txtAlunos.Size = new System.Drawing.Size(137, 22);
             this.txtAlunos.TabIndex = 11;
+            this.txtAlunos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlunos_KeyPress);
             // 
             // lblQtde_alunos
             // 
@@ -85,14 +104,17 @@
             // 
             // txtHoras
             // 
+            this.txtHoras.Enabled = false;
             this.txtHoras.Location = new System.Drawing.Point(179, 182);
             this.txtHoras.Mask = "00:00";
             this.txtHoras.Name = "txtHoras";
             this.txtHoras.Size = new System.Drawing.Size(112, 22);
             this.txtHoras.TabIndex = 9;
+            this.txtHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHoras_KeyPress);
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.Enabled = false;
             this.btnCadastrar.Location = new System.Drawing.Point(76, 238);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(503, 23);
@@ -103,10 +125,12 @@
             // 
             // txtProfessor
             // 
+            this.txtProfessor.Enabled = false;
             this.txtProfessor.Location = new System.Drawing.Point(179, 94);
             this.txtProfessor.Name = "txtProfessor";
             this.txtProfessor.Size = new System.Drawing.Size(400, 22);
             this.txtProfessor.TabIndex = 5;
+            this.txtProfessor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProfessor_KeyPress);
             // 
             // txtModalidade
             // 
@@ -162,22 +186,8 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(676, 171);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cbxDiaSemana
-            // 
-            this.cbxDiaSemana.FormattingEnabled = true;
-            this.cbxDiaSemana.Items.AddRange(new object[] {
-            "Segunda",
-            "Quinta",
-            "Sexta",
-            "Segunda e Quarta",
-            "Terça e Quinta",
-            "Quarta e Sexta"});
-            this.cbxDiaSemana.Location = new System.Drawing.Point(179, 136);
-            this.cbxDiaSemana.Name = "cbxDiaSemana";
-            this.cbxDiaSemana.Size = new System.Drawing.Size(400, 24);
-            this.cbxDiaSemana.TabIndex = 12;
             // 
             // modalidade
             // 

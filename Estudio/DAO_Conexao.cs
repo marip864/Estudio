@@ -17,10 +17,10 @@ namespace Estudio
             try
             {
                 con = new MySqlConnection("Server =" + local + ";User ID=" + user + ";" + "Database=" + banco + "; Password=" + senha + "; SslMode = none");
-                
+
                 retorno = true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -47,16 +47,36 @@ namespace Estudio
                 con.Close();
             }
             return cad;
-            
-        }
 
+        }
+        public bool existeCadastro(string usuario)
+        {
+            bool cad = false;
+            try
+            {
+                con.Open();
+                MySqlCommand verifica = new MySqlCommand("select * from Estudio_Login where usuario='" + usuario + "'", con);
+                MySqlDataReader resultado = verifica.ExecuteReader();
+                if (resultado.Read())
+                    cad = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return cad;
+        }
         public static int verLogin(string usuario, string senha)
         {
             int tipo = 0;
             try
             {
                 con.Open();
-                MySqlCommand verifica = new MySqlCommand("select * from Estudio_Login where usuario='"+usuario+"' and senha='"+senha+"'", con);
+                MySqlCommand verifica = new MySqlCommand("select * from Estudio_Login where usuario='" + usuario + "' and senha='" + senha + "'", con);
                 MySqlDataReader resultado = verifica.ExecuteReader();
                 if (resultado.Read())
                     tipo = Convert.ToInt32(resultado["tipo"].ToString());
@@ -71,5 +91,7 @@ namespace Estudio
             }
             return tipo;
         }
+
+
     }
 }
