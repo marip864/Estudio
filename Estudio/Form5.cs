@@ -69,19 +69,19 @@ namespace Estudio
                     txtEstado.Text = dr["estadoAluno"].ToString();
                     txtTel.Text = dr["telefoneAluno"].ToString();
                     txtEmail.Text = dr["emailAluno"].ToString();
-                    txtCPF.Enabled = false;
-                    if (opcao == 1)
+                    if (opcao == 2)
                     {
-                        txtNome.Enabled = false;
-                        txtEnd.Enabled = false;
-                        txtNumero.Enabled = false;
-                        txtBairro.Enabled = false;
-                        txtCompl.Enabled = false;
-                        txtCEP.Enabled = false;
-                        txtCidade.Enabled = false;
-                        txtEstado.Enabled = false;
-                        txtTel.Enabled = false;
-                        txtEmail.Enabled = false;
+                        txtNome.Enabled = true;
+                        txtEnd.Enabled = true;
+                        txtNumero.Enabled = true;
+                        txtBairro.Enabled = true;
+                        txtCompl.Enabled = true;
+                        txtCEP.Enabled = true;
+                        txtCidade.Enabled = true;
+                        txtEstado.Enabled = true;
+                        txtTel.Enabled = true;
+                        txtEmail.Enabled = true;
+                        button1.Enabled = true;
                     }
                 }
                 else

@@ -73,7 +73,6 @@ namespace Estudio
                 txtPreco.Enabled = false;
                 txtAulas.Enabled = false;
                 txtAlunos.Enabled = false;
-                cbxDescricao.Enabled = false;
             }
             Modalidade m = new Modalidade(cbxDescricao.Text);
             MySqlDataReader mdr = m.consultarModalidade();

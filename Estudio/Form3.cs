@@ -33,6 +33,10 @@ namespace Estudio
                 else
                     MessageBox.Show("Erro no cadastro!");
             }
+            else
+            {
+                MessageBox.Show("CPF inválido");
+            }
 
             txtNome.Text = "";
             txtEnd.Text = "";

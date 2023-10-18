@@ -32,6 +32,7 @@ namespace Estudio
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtCompl = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@ namespace Estudio
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,8 +94,20 @@ namespace Estudio
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Cadastrais";
             // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(337, 332);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(294, 28);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Tornar Ativo";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // txtEmail
             // 
+            this.txtEmail.Enabled = false;
             this.txtEmail.Location = new System.Drawing.Point(363, 277);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
@@ -114,6 +126,7 @@ namespace Estudio
             // 
             // txtCompl
             // 
+            this.txtCompl.Enabled = false;
             this.txtCompl.Location = new System.Drawing.Point(499, 194);
             this.txtCompl.Margin = new System.Windows.Forms.Padding(4);
             this.txtCompl.Name = "txtCompl";
@@ -122,6 +135,7 @@ namespace Estudio
             // 
             // txtEstado
             // 
+            this.txtEstado.Enabled = false;
             this.txtEstado.Location = new System.Drawing.Point(561, 234);
             this.txtEstado.Margin = new System.Windows.Forms.Padding(4);
             this.txtEstado.Name = "txtEstado";
@@ -130,6 +144,7 @@ namespace Estudio
             // 
             // txtCidade
             // 
+            this.txtCidade.Enabled = false;
             this.txtCidade.Location = new System.Drawing.Point(337, 234);
             this.txtCidade.Margin = new System.Windows.Forms.Padding(4);
             this.txtCidade.Name = "txtCidade";
@@ -168,6 +183,7 @@ namespace Estudio
             // 
             // txtNumero
             // 
+            this.txtNumero.Enabled = false;
             this.txtNumero.Location = new System.Drawing.Point(499, 151);
             this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.Name = "txtNumero";
@@ -186,6 +202,7 @@ namespace Estudio
             // 
             // txtTel
             // 
+            this.txtTel.Enabled = false;
             this.txtTel.Location = new System.Drawing.Point(137, 277);
             this.txtTel.Margin = new System.Windows.Forms.Padding(4);
             this.txtTel.Mask = "(00)00000-0000";
@@ -195,6 +212,7 @@ namespace Estudio
             // 
             // txtCEP
             // 
+            this.txtCEP.Enabled = false;
             this.txtCEP.Location = new System.Drawing.Point(137, 234);
             this.txtCEP.Margin = new System.Windows.Forms.Padding(4);
             this.txtCEP.Mask = "00000-000";
@@ -204,6 +222,7 @@ namespace Estudio
             // 
             // txtBairro
             // 
+            this.txtBairro.Enabled = false;
             this.txtBairro.Location = new System.Drawing.Point(137, 194);
             this.txtBairro.Margin = new System.Windows.Forms.Padding(4);
             this.txtBairro.Name = "txtBairro";
@@ -212,6 +231,7 @@ namespace Estudio
             // 
             // txtEnd
             // 
+            this.txtEnd.Enabled = false;
             this.txtEnd.Location = new System.Drawing.Point(137, 151);
             this.txtEnd.Margin = new System.Windows.Forms.Padding(4);
             this.txtEnd.Name = "txtEnd";
@@ -220,6 +240,7 @@ namespace Estudio
             // 
             // txtNome
             // 
+            this.txtNome.Enabled = false;
             this.txtNome.Location = new System.Drawing.Point(137, 106);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
@@ -238,6 +259,7 @@ namespace Estudio
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(53, 332);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
@@ -306,17 +328,6 @@ namespace Estudio
             this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "CPF:";
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(337, 332);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(294, 28);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Tornar Ativo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form5
             // 
