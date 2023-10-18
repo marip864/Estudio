@@ -30,7 +30,7 @@ namespace Estudio
             if ((cbxTurma.Text != "") && (cbxDiaSemana.Text != "") && (cbxHora.Text != ""))
             {
                 Turma turma = new Turma();
-                if (turma.excluirTurma(turma.selecionaId(cbxTurma.Text), cbxDiaSemana.Text, cbxHora.Text))
+                if (turma.excluirTurma(cbxTurma.Text, cbxDiaSemana.Text, cbxHora.Text))
                     MessageBox.Show("Excluído com sucesso!");
                 else
                     MessageBox.Show("Erro na exclusão!");

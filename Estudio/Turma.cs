@@ -83,13 +83,13 @@ namespace Estudio
             return cad;
         }
 
-        public bool excluirTurma(int i, string d, string h)
+        public bool excluirTurma(string n, string d, string h)
         {
             bool result = false;
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand exclui = new MySqlCommand("update Estudio_Turma set ativa = 1 where idModalidade ="+i+" and diasemanaTurma = '" + d + "' and horaTurma ='" + h + "'", DAO_Conexao.con);
+                MySqlCommand exclui = new MySqlCommand("update Estudio_Turma set ativa = 1 where nomeTurma='"+n+"' and diasemanaTurma = '" + d + "' and horaTurma ='" + h + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 result = true;
             }
