@@ -308,6 +308,23 @@ namespace Estudio
             return result;
         }
 
+        public MySqlDataReader consultarTodasTurmas03()
+        {
+            MySqlDataReader result = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_Turma where ativa=0", DAO_Conexao.con);
+                result = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return result;
+        }
+
         public bool consultarIgual(string p)
         {
             MySqlDataReader result = null;

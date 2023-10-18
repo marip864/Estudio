@@ -17,21 +17,25 @@ namespace Estudio
         public Form11(int op)
         {
             InitializeComponent();
+            MySqlDataReader r;
+            Turma con_t = new Turma();
             if (op == 2)
             {
                 btnAtualizar.Visible = false;
                 btnAtivo.Visible = false;
+                r = con_t.consultarTodasTurmas03();
                 opcao = 2;
             }
             else
             {
                 btnAtualizar.Text = "Atualizar";
                 btnAtivo.Enabled = false;
+                r = con_t.consultarTodasTurmas02();
                 opcao = 1;
             }
-            Turma con_t = new Turma();
+            
 
-            MySqlDataReader r = con_t.consultarTodasTurmas02();
+            
 
             while (r.Read())
             {
