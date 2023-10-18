@@ -233,6 +233,7 @@ namespace Estudio
                 MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidade set ativa = 1 where descricaoModalidade = '" + exclusao + "'", DAO_Conexao.con);
                 MySqlCommand excluit = new MySqlCommand("update Estudio_Turma set ativa = 1 where idModalidade = " + i + "", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
+                excluit.ExecuteNonQuery();
                 result = true;
             }
             catch (Exception e)
