@@ -165,7 +165,7 @@ namespace Estudio
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand atualiza = new MySqlCommand("update Estudio_Modalidade set ativa = 0 where descricaoModalidade = '" + Descricao + "'", DAO_Conexao.con);
-                MySqlCommand atualizat = new MySqlCommand("update Estudio_Turma set ativa = 0 where idModalidade = '" + IdModalidade + "'", DAO_Conexao.con);
+                
                 atualiza.ExecuteNonQuery();
                 result = true;
             }
@@ -245,6 +245,31 @@ namespace Estudio
                 DAO_Conexao.con.Close();
             }
             return result;
+        }
+
+        public int selecionaMaximoModalidade(int id)
+        {
+            MySqlDataReader resultS = null;
+            int resultI = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select qtdeAlunos from Estudio_Modalidade where idEstudio_Modalidade = " + id + "", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+                if (resultS.Read())
+                {
+                    resultI = int.Parse(resultS["qtdeAlunos"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return resultI;
         }
     }
 }

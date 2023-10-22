@@ -87,7 +87,7 @@
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(161, 110);
+            this.txtPreco.Location = new System.Drawing.Point(161, 114);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(466, 22);
             this.txtPreco.TabIndex = 6;
@@ -141,7 +141,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 68);
+            this.label1.Location = new System.Drawing.Point(63, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 0;

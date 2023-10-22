@@ -14,6 +14,12 @@ namespace Estudio
     class Turma
     {
         private string professor, dia_semana, hora, nome;
+
+        public Turma(string nome)
+        {
+            Nome = nome;
+        }
+
         private int modalidade, qtde_alunos, id;
 
         public Turma(int id, string professor, string dia_semana, string hora, int modalidade, int qtde_alunos)
@@ -274,6 +280,23 @@ namespace Estudio
             return result;
         }
 
+        public MySqlDataReader consultarTodasTurmasParaModalidade(int id)
+        {
+            MySqlDataReader result = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select distinct (nomeTurma) from Estudio_Turma where idModalidade = "+id+"", DAO_Conexao.con);
+                result = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return result;
+        }
+
         public MySqlDataReader consultarTodasTurmasAtivas()
         {
             MySqlDataReader result = null;
@@ -448,6 +471,27 @@ namespace Estudio
             return result;
         }
 
+        public bool atualizarNomeTurma()
+        {
+            bool result = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Turma set nomeTurma = '" + Nome + "' where idModalidade =" + Modalidade + "", DAO_Conexao.con);
+                atualiza.ExecuteNonQuery();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return result;
+        }
+
         public int verificaAtivo()
         {
             MySqlDataReader resultS = null;
@@ -548,6 +592,13 @@ namespace Estudio
                 DAO_Conexao.con.Close();
             }
             return resultI;
+        }
+
+        public int contaAlunos(int novosAlunos)
+        {
+            MySqlDataReader resultS = null;
+            MySqlCommand consulta = new MySqlCommand();
+            return 0;
         }
 
         public bool tornarAtivo()

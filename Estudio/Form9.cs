@@ -30,6 +30,7 @@ namespace Estudio
 
             try
             {
+                
                 int cont = 0;
                 string nome = "";
                 int qtd_alunos = int.Parse(txtAlunos.Text);
@@ -49,6 +50,8 @@ namespace Estudio
                     nome = string.Concat(txtModalidade.Text + " - " + cont.ToString() + "x");
                 }
                 Turma turma = new Turma(professor, dia_semana, horas, modalidade, qtd_alunos, nome);
+
+                
 
                 if (turma.consultarIgual(txtProfessor.Text))
                 {

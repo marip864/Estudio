@@ -67,18 +67,10 @@ namespace Estudio
                 }
                 Turma turma = new Turma(int.Parse(txtAlunos.Text), txtProfessor.Text, cbxDiaSemana.Text, txtHora.Text, int.Parse(txtId.Text), nome);
                 
-
-                if (turma.consultarIgual(txtProfessor.Text))
-                {
-                    MessageBox.Show("O professor já tem aula nesse dia e horário!");
-                }
-                else
-                {
                     if (turma.atualizarTurma())
                     {
                         MessageBox.Show("Atualização realizada com sucesso!");
                     }
-                }
                 
             }
             catch (Exception ex)

@@ -26,17 +26,10 @@ namespace Estudio
         private void button1_Click(object sender, EventArgs e)
         {
             Aluno aluno = new Aluno(txtCPF.Text, txtNome.Text, txtEnd.Text, txtNumero.Text, txtBairro.Text, txtCompl.Text, txtCEP.Text, txtCidade.Text, txtEstado.Text, txtTel.Text, txtEmail.Text);
-            if (aluno.verificaCPF())
-            {
-                if (aluno.cadastrarAluno())
-                    MessageBox.Show("Cadastro realizado com sucesso!");
-                else
-                    MessageBox.Show("Erro no cadastro!");
-            }
+            if (aluno.cadastrarAluno())
+                MessageBox.Show("Cadastro realizado com sucesso!");
             else
-            {
-                MessageBox.Show("CPF inválido");
-            }
+                MessageBox.Show("Erro no cadastro!");
 
             txtNome.Text = "";
             txtEnd.Text = "";
@@ -74,18 +67,28 @@ namespace Estudio
                 }
                 else
                 {
-                    txtNome.Enabled = true;
-                    txtEnd.Enabled = true;
-                    txtNumero.Enabled = true;
-                    txtBairro.Enabled = true;
-                    txtCompl.Enabled = true;
-                    txtCEP.Enabled = true;
-                    txtCidade.Enabled = true;
-                    txtEstado.Enabled = true;
-                    txtTel.Enabled = true;
-                    txtEmail.Enabled = true;
-                    button1.Enabled = true;
-                    txtNome.Focus();
+                    if (aluno.verificaCPF())
+                    {
+
+                        txtNome.Enabled = true;
+                        txtEnd.Enabled = true;
+                        txtNumero.Enabled = true;
+                        txtBairro.Enabled = true;
+                        txtCompl.Enabled = true;
+                        txtCEP.Enabled = true;
+                        txtCidade.Enabled = true;
+                        txtEstado.Enabled = true;
+                        txtTel.Enabled = true;
+                        txtEmail.Enabled = true;
+                        button1.Enabled = true;
+                        txtNome.Focus();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("CPF inválido");
+                        txtCPF.Text = "";
+                    }
                 }
 
                 DAO_Conexao.con.Close();

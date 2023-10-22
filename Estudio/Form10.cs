@@ -73,6 +73,7 @@ namespace Estudio
 
         private void cbxDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbxHora.Items.Clear();
             cbxHora.Enabled = true;
             Turma exc = new Turma();
             MySqlDataReader r = exc.consultarTurma01(cbxDiaSemana.Text, cbxTurma.Text);
