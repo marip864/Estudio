@@ -32,6 +32,7 @@ namespace Estudio
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAtualizarFoto = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -57,7 +58,6 @@ namespace Estudio
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAtualizarFoto = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +98,17 @@ namespace Estudio
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Cadastrais";
+            // 
+            // btnAtualizarFoto
+            // 
+            this.btnAtualizarFoto.Enabled = false;
+            this.btnAtualizarFoto.Location = new System.Drawing.Point(662, 332);
+            this.btnAtualizarFoto.Name = "btnAtualizarFoto";
+            this.btnAtualizarFoto.Size = new System.Drawing.Size(190, 28);
+            this.btnAtualizarFoto.TabIndex = 25;
+            this.btnAtualizarFoto.Text = "Atualizar Foto";
+            this.btnAtualizarFoto.UseVisualStyleBackColor = true;
+            this.btnAtualizarFoto.Click += new System.EventHandler(this.btnAtualizarFoto_Click);
             // 
             // pictureBox1
             // 
@@ -269,6 +280,7 @@ namespace Estudio
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(113, 22);
             this.txtCPF.TabIndex = 7;
+            this.txtCPF.TextChanged += new System.EventHandler(this.txtCPF_TextChanged);
             this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             // 
             // button1
@@ -342,17 +354,6 @@ namespace Estudio
             this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "CPF:";
-            // 
-            // btnAtualizarFoto
-            // 
-            this.btnAtualizarFoto.Enabled = false;
-            this.btnAtualizarFoto.Location = new System.Drawing.Point(662, 332);
-            this.btnAtualizarFoto.Name = "btnAtualizarFoto";
-            this.btnAtualizarFoto.Size = new System.Drawing.Size(190, 28);
-            this.btnAtualizarFoto.TabIndex = 25;
-            this.btnAtualizarFoto.Text = "Atualizar Foto";
-            this.btnAtualizarFoto.UseVisualStyleBackColor = true;
-            this.btnAtualizarFoto.Click += new System.EventHandler(this.btnAtualizarFoto_Click);
             // 
             // Form5
             // 

@@ -88,6 +88,7 @@ namespace Estudio
 
         private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
         {
+            pictureBox1.Image = null;
             Aluno aluno = new Aluno(txtCPF.Text);
             if (e.KeyChar == 13)
             {
@@ -134,6 +135,9 @@ namespace Estudio
             }
         }
 
-
+        private void txtCPF_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

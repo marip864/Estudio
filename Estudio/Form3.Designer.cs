@@ -244,6 +244,7 @@ namespace Estudio
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(113, 22);
             this.txtCPF.TabIndex = 7;
+            this.txtCPF.TextChanged += new System.EventHandler(this.txtCPF_TextChanged);
             this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             // 
             // button1

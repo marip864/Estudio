@@ -33,7 +33,7 @@ namespace Estudio
                 }
                 else
                 {
-
+               
                     if (modalidade.cadastrarModalidade())
                     {
                         MessageBox.Show("Cadastro realizado com sucesso!");

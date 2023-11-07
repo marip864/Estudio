@@ -82,6 +82,7 @@ namespace Estudio
             txtEmail.Enabled = false;
             button1.Enabled = false;
             btnAtualizarFoto.Enabled = false;
+            button2.Enabled = false;
         }
 
         private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
@@ -130,6 +131,7 @@ namespace Estudio
                         txtTel.Enabled = true;
                         txtEmail.Enabled = true;
                         button1.Enabled = true;
+                        btnAtualizarFoto.Enabled = true;
                         txtCPF.Enabled = false;
                     }
                 }
@@ -160,6 +162,7 @@ namespace Estudio
                 if (a.tornarAtivo())
                 {
                     MessageBox.Show("Aluno ativado com sucesso!");
+                    button2.Enabled=false;
                 }
             }
             catch (Exception ex)
@@ -190,6 +193,11 @@ namespace Estudio
                 }//catch
             }//if
             dialog.Dispose();
+        }
+
+        private void txtCPF_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
