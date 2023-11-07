@@ -37,6 +37,7 @@ namespace Estudio
             {
                 MessageBox.Show("Selecione uma opção para excluir!");
             }
+            cbxDescricao.Text = "";
             
         }
 

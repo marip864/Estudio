@@ -72,7 +72,7 @@ namespace Estudio
 
         private void cadastrarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form3 filho = new Form3();
                 filho.MdiParent = this;
@@ -88,7 +88,7 @@ namespace Estudio
 
         private void excluirAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form4 filho = new Form4();
                 filho.MdiParent = this;
@@ -98,7 +98,7 @@ namespace Estudio
 
         private void atualizarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form5 filho = new Form5(2);
                 filho.MdiParent = this;
@@ -108,7 +108,7 @@ namespace Estudio
 
         private void cadastrarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form6 filho = new Form6();
                 filho.MdiParent = this;
@@ -119,7 +119,7 @@ namespace Estudio
 
         private void consultarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form8 filho = new Form8(1);
                 filho.MdiParent = this;
@@ -129,7 +129,7 @@ namespace Estudio
 
         private void atualizarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form8 filho = new Form8(2);
                 filho.MdiParent = this;
@@ -140,7 +140,7 @@ namespace Estudio
 
         private void excluirModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form7 filho = new Form7();
                 filho.MdiParent = this;
@@ -150,7 +150,7 @@ namespace Estudio
 
         private void caToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form9 filho = new Form9();
                 filho.MdiParent = this;
@@ -160,7 +160,7 @@ namespace Estudio
 
         private void excluirTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form10 filho = new Form10();
                 filho.MdiParent = this;
@@ -170,7 +170,7 @@ namespace Estudio
 
         private void atualizarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form11 filho = new Form11(1);
                 filho.MdiParent = this;
@@ -180,7 +180,7 @@ namespace Estudio
 
         private void consultarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form11 filho = new Form11(2);
                 filho.MdiParent = this;
@@ -195,7 +195,7 @@ namespace Estudio
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form12 filho = new Form12();
                 filho.MdiParent = this;
@@ -205,7 +205,7 @@ namespace Estudio
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form13 filho = new Form13();
                 filho.MdiParent = this;
@@ -215,7 +215,7 @@ namespace Estudio
 
         private void consultarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form5 filho = new Form5(1);
                 filho.MdiParent = this;
@@ -235,7 +235,7 @@ namespace Estudio
 
         private void excluirToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form13 filho = new Form13();
                 filho.MdiParent = this;
@@ -245,9 +245,19 @@ namespace Estudio
 
         private void consultarAlunoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0))
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
             {
                 Form5 filho = new Form5(1);
+                filho.MdiParent = this;
+                filho.Show();
+            }
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms.OfType<Form9>().Count() == 0) && (Application.OpenForms.OfType<Form10>().Count() == 0) && (Application.OpenForms.OfType<Form2>().Count() == 0) && (Application.OpenForms.OfType<Form3>().Count() == 0) && (Application.OpenForms.OfType<Form4>().Count() == 0) && (Application.OpenForms.OfType<Form5>().Count() == 0) && (Application.OpenForms.OfType<Form6>().Count() == 0) && (Application.OpenForms.OfType<Form7>().Count() == 0) && (Application.OpenForms.OfType<Form8>().Count() == 0) && (Application.OpenForms.OfType<Form11>().Count() == 0) && (Application.OpenForms.OfType<Form12>().Count() == 0) && (Application.OpenForms.OfType<Form13>().Count() == 0) && (Application.OpenForms.OfType<Form14>().Count() == 0))
+            {
+                Form14 filho = new Form14();
                 filho.MdiParent = this;
                 filho.Show();
             }

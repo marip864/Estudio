@@ -27,18 +27,26 @@ namespace Estudio
             }
             else
             {
-                if (comboBox1.SelectedIndex == 0)
-                    tipo = 1; //adm
-                else if (comboBox1.SelectedIndex == 1)
-                    tipo = 2; //restrito
-
-                if (DAO_Conexao.CadLogin(textBox1.Text, textBox2.Text, tipo))
-                    MessageBox.Show("Cadastro realizado com sucesso!");
+                if ((comboBox1.Text == "") || (textBox1.Text == "") || (textBox2.Text == ""))
+                {
+                    MessageBox.Show("Preencha todos os campos!");
+                }
                 else
-                    MessageBox.Show("Erro de cadastro!");
+                {
+                    if (comboBox1.SelectedIndex == 0)
+                        tipo = 1; //adm
+                    else if (comboBox1.SelectedIndex == 1)
+                        tipo = 2; //restrito
+
+                    if (DAO_Conexao.CadLogin(textBox1.Text, textBox2.Text, tipo))
+                        MessageBox.Show("Cadastro realizado com sucesso!");
+                    else
+                        MessageBox.Show("Erro de cadastro!");
+                }
             }
             textBox1.Text = "";
             textBox2.Text = "";
+            comboBox1.Text = "";
 
         }
     }

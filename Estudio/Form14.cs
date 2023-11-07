@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Estudio
 {
-    public partial class Form10 : Form
+    public partial class Form14 : Form
     {
-        public Form10()
+        public Form14()
         {
             InitializeComponent();
             Turma exc = new Turma();
@@ -25,28 +25,44 @@ namespace Estudio
             DAO_Conexao.con.Close();
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void Form14_Load(object sender, EventArgs e)
         {
-            if ((cbxTurma.Text != "") && (cbxDiaSemana.Text != "") && (cbxHora.Text != ""))
-            {
-                Turma turma = new Turma();
-                if (turma.excluirTurma(cbxTurma.Text, cbxDiaSemana.Text, cbxHora.Text,turma.selecionaIdTurma(cbxTurma.Text)))
-                    MessageBox.Show("Excluído com sucesso!");
-                else
-                    MessageBox.Show("Erro na exclusão!");
-                cbxTurma.Text = "";
-                cbxDiaSemana.Text = "";
-                cbxHora.Text = "";
-            }
-            else
-            {
-                MessageBox.Show("Selecione uma opção para excluir!");
-            }
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void cbxTurma_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbxDiaSemana.Items.Clear();
+            cbxDiaSemana.Text = "";
+            cbxHora.Items.Clear();
+            cbxHora.Text = "";
+            txtQtdeAlunos.Text = "";
+            dataGridView1.Rows.Clear();
             cbxDiaSemana.Enabled = true;
             Turma exc = new Turma();
             MySqlDataReader r = exc.consultar(cbxTurma.Text);
@@ -62,18 +78,9 @@ namespace Estudio
             DAO_Conexao.con.Close();
         }
 
-        private void cbxHora_Click(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cbxHora_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbxDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            txtQtdeAlunos.Text = "";
             cbxHora.Items.Clear();
             cbxHora.Enabled = true;
             Turma exc = new Turma();
@@ -82,7 +89,27 @@ namespace Estudio
             {
                 cbxHora.Items.Add(r["horaTurma"].ToString());
             }
+
             DAO_Conexao.con.Close();
+
+        }
+
+        private void cbxHora_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+            AlunoTurma exc = new AlunoTurma();
+            Turma t = new Turma();
+            MySqlDataReader r = exc.consultarAlunosdaTurma(t.selecionaIdTurma(cbxTurma.Text));
+            while (r.Read())
+            {
+                dataGridView1.Rows.Add(r["nomeAluno"].ToString());
+                i++;
+            }
+            
+            DAO_Conexao.con.Close();
+
+            
+            txtQtdeAlunos.Text = i.ToString();
         }
     }
 }

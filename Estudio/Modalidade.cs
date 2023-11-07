@@ -2,11 +2,13 @@
 using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Estudio
@@ -133,6 +135,22 @@ namespace Estudio
             return result;
         }
 
+        public MySqlDataReader consultarNomeTurmasModalidade()
+        {
+            MySqlDataReader result = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_Modalidade where ativa = 0", DAO_Conexao.con);
+                result = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
+        }
+
         public int verificaAtivo()
         {
             MySqlDataReader resultS = null;
@@ -196,6 +214,121 @@ namespace Estudio
                 DAO_Conexao.con.Close();
             }
             return result;
+        }
+
+        public bool atualizarDescricaoModalidadecomNovoNome(string s, string d, int i, int qtde)
+        {
+            bool result = false;
+            string[] s2;
+            string novoTurma = "";
+            try
+            {
+                int cont = 0;
+                Turma t = new Turma();
+                MySqlDataReader r1 = t.consultar(i);
+                while (r1.Read())
+                {
+                    cont++;
+                }
+                DAO_Conexao.con.Close();
+                string[] nome = new string[cont];
+                string[] piece = new string[cont];
+                int[] id = new int[cont];
+                int c = 0;
+
+                MySqlDataReader r2 = t.consultar(i);
+                while (r2.Read())
+                {
+                    nome[c] = r2["nomeTurma"].ToString();
+                    int index = nome[c].IndexOf(" - ") + 1;
+                    piece[c] = nome[c].Substring(index);
+                    id[c] = int.Parse(r2["idEstudio_Turma"].ToString());
+                    c++;
+                }
+                DAO_Conexao.con.Close();
+
+                for(c = 0; c<=cont-1; c++)
+                {
+                    novoTurma = s + " " + piece[c];
+                    DAO_Conexao.con.Open();
+                    MySqlCommand atualizaT = new MySqlCommand("update Estudio_Turma set nomeTurma = '" + novoTurma + "' where idEstudio_Turma = " + id[c], DAO_Conexao.con);
+                    atualizaT.ExecuteNonQuery();
+                    DAO_Conexao.con.Close();
+                }
+
+                DAO_Conexao.con.Open();
+                MySqlCommand atualizaM = new MySqlCommand("update Estudio_Modalidade set descricaoModalidade = '" + s + "' where descricaoModalidade ='" + d + "'", DAO_Conexao.con);
+                atualizaM.ExecuteNonQuery();
+                DAO_Conexao.con.Close() ;
+                
+         
+                DAO_Conexao.con.Close();
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return result;
+        }
+
+
+
+        public int selecionaQtdeAulas(int id)
+        {
+            MySqlDataReader resultS = null;
+            int resultI = 0;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select qtdeAulas from Estudio_Modalidade where idEstudio_Modalidade = " + id + "", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+                if (resultS.Read())
+                {
+                    resultI = int.Parse(resultS["qtdeAulas"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return resultI;
+        }
+
+        public int selecionaMaximo(int id)
+        {
+            MySqlDataReader resultS = null;
+            int resultI = 0;
+            
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select qtdeAlunos from Estudio_Modalidade where idEstudio_Modalidade = " + id + "", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+                if (resultS.Read())
+                {
+                    resultI = int.Parse(resultS["qtdeAlunos"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return resultI;
         }
 
         public int selecionaId(string s)

@@ -17,7 +17,7 @@ namespace Estudio
         public Form11(int op)
         {
             InitializeComponent();
-            MySqlDataReader r;
+            MySqlDataReader r = null;
             Turma con_t = new Turma();
             if (op == 2)
             {
@@ -33,9 +33,6 @@ namespace Estudio
                 r = con_t.consultarTodasTurmas02();
                 opcao = 1;
             }
-            
-
-            
 
             while (r.Read())
             {
@@ -49,29 +46,37 @@ namespace Estudio
         {
             try
             {
-                int cont = 0;
-                string nome = "";
-                Turma t = new Turma();
-                int i = t.consultarTodasTurmas01(txtModalidade.Text);
-                string m = t.selecionaModalidade(i);
+                try
+                {
+                    int cont = 0;
+                    string nome = "";
+                    Turma t = new Turma();
+                    int i = t.consultarTodasTurmas01(txtModalidade.Text);
+                    string m = t.selecionaModalidade(i);
 
-                if ((cbxDiaSemana.SelectedIndex == 0) || (cbxDiaSemana.SelectedIndex == 1) || (cbxDiaSemana.SelectedIndex == 2))
-                {
-                    cont = 1;
-                    nome = string.Concat(m + " - " + cont.ToString() + "x");
-                }
-                if ((cbxDiaSemana.SelectedIndex == 3) || (cbxDiaSemana.SelectedIndex == 4) || (cbxDiaSemana.SelectedIndex == 5))
-                {
-                    cont = 2;
-                    nome = string.Concat(m + " - " + cont.ToString() + "x");
-                }
-                Turma turma = new Turma(int.Parse(txtAlunos.Text), txtProfessor.Text, cbxDiaSemana.Text, txtHora.Text, int.Parse(txtId.Text), nome);
-                
-                    if (turma.atualizarTurma())
+                    if ((cbxDiaSemana.SelectedIndex == 0) || (cbxDiaSemana.SelectedIndex == 1) || (cbxDiaSemana.SelectedIndex == 2))
+                    {
+                        cont = 1;
+                        nome = string.Concat(m + " - " + cont.ToString() + "x");
+                    }
+                    if ((cbxDiaSemana.SelectedIndex == 3) || (cbxDiaSemana.SelectedIndex == 4) || (cbxDiaSemana.SelectedIndex == 5))
+                    {
+                        cont = 2;
+                        nome = string.Concat(m + " - " + cont.ToString() + "x");
+                    }
+                    Turma turma = new Turma(txtProfessor.Text, cbxDiaSemana.Text, txtHora.Text, int.Parse(txtId.Text), nome);
+
+                    if (turma.atualizarTurma(int.Parse(txtId.Text)))
                     {
                         MessageBox.Show("Atualização realizada com sucesso!");
                     }
-                
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Selecione uma opção para atualizar!");
+                }
+
             }
             catch (Exception ex)
             {
@@ -129,7 +134,6 @@ namespace Estudio
                 txtProfessor.Enabled = false;
                 cbxDiaSemana.Enabled = false;
                 txtHora.Enabled = false;
-                txtAlunos.Enabled = false;
             }
         }
     }

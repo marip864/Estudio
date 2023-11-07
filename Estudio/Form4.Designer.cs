@@ -58,7 +58,9 @@
             this.ClientSize = new System.Drawing.Size(593, 175);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Excluir Aluno";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);

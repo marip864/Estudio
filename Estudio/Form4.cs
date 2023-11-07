@@ -25,11 +25,14 @@ namespace Estudio
         private void maskedTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             Aluno aluno = new Aluno(maskedTextBox1.Text);
+            AlunoTurma aturma = new AlunoTurma();
+            Turma t = new Turma();
+            t.Id = t.selecionaIdTurmadoAluno(maskedTextBox1.Text);
             if (e.KeyChar == 13)
             {
                 if (aluno.consultarAluno())
                 {
-                    if (aluno.excluirAluno())
+                    if (aluno.excluirAluno(t.Id))
                     {
                         MessageBox.Show("Aluno excluído!");
                     }

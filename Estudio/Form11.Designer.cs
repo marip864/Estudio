@@ -153,6 +153,7 @@
             // 
             // txtAlunos
             // 
+            this.txtAlunos.Enabled = false;
             this.txtAlunos.Location = new System.Drawing.Point(473, 154);
             this.txtAlunos.Name = "txtAlunos";
             this.txtAlunos.Size = new System.Drawing.Size(158, 22);
@@ -279,7 +280,9 @@
             this.ClientSize = new System.Drawing.Size(800, 515);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form11";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atualizar Turma";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -296,10 +299,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox txtAlunos;
         private System.Windows.Forms.TextBox txtProfessor;
         private System.Windows.Forms.MaskedTextBox txtHora;
-        private System.Windows.Forms.Label lblAlunos;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblModaliade;
@@ -312,5 +313,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn diasemanaTurma;
         private System.Windows.Forms.DataGridViewTextBoxColumn hora;
         private System.Windows.Forms.DataGridViewTextBoxColumn alunos;
+        private System.Windows.Forms.Label lblAlunos;
+        private System.Windows.Forms.TextBox txtAlunos;
     }
 }

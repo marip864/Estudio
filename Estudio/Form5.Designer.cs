@@ -32,6 +32,7 @@ namespace Estudio
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -56,11 +57,15 @@ namespace Estudio
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAtualizarFoto = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAtualizarFoto);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label11);
@@ -89,17 +94,26 @@ namespace Estudio
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(696, 391);
+            this.groupBox1.Size = new System.Drawing.Size(885, 391);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Cadastrais";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(662, 62);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(190, 235);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(337, 332);
+            this.button2.Location = new System.Drawing.Point(363, 332);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(294, 28);
+            this.button2.Size = new System.Drawing.Size(268, 28);
             this.button2.TabIndex = 23;
             this.button2.Text = "Tornar Ativo";
             this.button2.UseVisualStyleBackColor = true;
@@ -329,16 +343,30 @@ namespace Estudio
             this.label1.TabIndex = 0;
             this.label1.Text = "CPF:";
             // 
+            // btnAtualizarFoto
+            // 
+            this.btnAtualizarFoto.Enabled = false;
+            this.btnAtualizarFoto.Location = new System.Drawing.Point(662, 332);
+            this.btnAtualizarFoto.Name = "btnAtualizarFoto";
+            this.btnAtualizarFoto.Size = new System.Drawing.Size(190, 28);
+            this.btnAtualizarFoto.TabIndex = 25;
+            this.btnAtualizarFoto.Text = "Atualizar Foto";
+            this.btnAtualizarFoto.UseVisualStyleBackColor = true;
+            this.btnAtualizarFoto.Click += new System.EventHandler(this.btnAtualizarFoto_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(983, 470);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form5";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atualizar Aluno";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,5 +400,7 @@ namespace Estudio
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Button button2;
+        private PictureBox pictureBox1;
+        private Button btnAtualizarFoto;
     }
 }

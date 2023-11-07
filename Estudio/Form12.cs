@@ -24,17 +24,23 @@ namespace Estudio
             Aluno aluno = new Aluno(txtCPFAluno.Text);
             if (e.KeyChar == 13)
             {
-
                 if (aluno.consultarAluno())
                 {
-                    cbxTurma.Enabled = true;
-                    Turma exc = new Turma();
-                    MySqlDataReader r = exc.consultarTodasTurmas();
-                    while (r.Read())
+                    if (aluno.verificaAtivo()==0)
                     {
-                        cbxTurma.Items.Add(r["nomeTurma"].ToString());
+                        cbxTurma.Enabled = true;
+                        Turma exc = new Turma();
+                        MySqlDataReader r = exc.consultarTodasTurmas();
+                        while (r.Read())
+                        {
+                            cbxTurma.Items.Add(r["nomeTurma"].ToString());
+                        }
+                        DAO_Conexao.con.Close();
                     }
-                    DAO_Conexao.con.Close();
+                    else
+                    {
+                        MessageBox.Show("O aluno está destivado!");
+                    }
                 }
                 else
                 {
@@ -49,8 +55,9 @@ namespace Estudio
         {
             MySqlDataReader alDH;
             Turma t = new Turma();
+            
             int n = t.selecionaIdTurma(cbxTurma.Text);
-            AlunoTurma at = new AlunoTurma(txtCPFAluno.Text, n);
+            AlunoTurma at = new AlunoTurma(txtCPFAluno.Text, n, t.selecionaIdModalidade(cbxTurma.Text));
             if (at.consultarAlunoIgual(n))
             {
                 MessageBox.Show("Não é possível cadastrar aluno em uma turma já vinculada a ele!");
@@ -72,7 +79,7 @@ namespace Estudio
                 DAO_Conexao.con.Close();
                 if (exAlDH)
                 {
-                    if (t.contarAlunos(n) < t.selecionaMaximo(n))
+                    if (t.contarAlunos(at.IdModalidade) < at.selecionaMaximo(at.IdModalidade))
                     {
                         if (at.cadastrarAlunoTurma())
                         {
@@ -85,7 +92,7 @@ namespace Estudio
                     }
                     else
                     {
-                        MessageBox.Show("A turma já atingiu o limite de alunos!");
+                        MessageBox.Show("A modalidade já atingiu o limite de alunos!");
                     }
                 }
                 else
@@ -142,6 +149,11 @@ namespace Estudio
         private void cbxHora_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnCadastrar.Enabled = true;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

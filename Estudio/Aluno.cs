@@ -25,7 +25,7 @@ namespace Estudio
         private byte[] Foto;
         private bool ativo;
 
-        public Aluno(string CPF, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email, bool ativo, byte[] foto)
+        public Aluno(string CPF, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email, byte[] foto)
         {
             setCPF(CPF);
             setNome(nome);
@@ -39,7 +39,6 @@ namespace Estudio
             setTelefone(telefone);
             setEmail(email);
             setFoto(foto);
-            setAtivo(ativo);
         }
 
         public Aluno(string CPF, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email)
@@ -73,7 +72,8 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno, bairroAluno, complementoAluno, CEPAluno, cidadeAluno, estadoAluno, telefoneAluno, emailAluno) values ('" + CPF + "','" + Nome + "','" + Rua + "','" + Numero + "','" + Bairro + "','" + Complemento + "','" + CEP + "','" + Cidade + "','" + Estado + "','" + Telefone + "','" + Email + "')", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno, bairroAluno, complementoAluno, CEPAluno, cidadeAluno, estadoAluno, telefoneAluno, emailAluno, fotoAluno) values ('" + CPF + "','" + Nome + "','" + Rua + "','" + Numero + "','" + Bairro + "','" + Complemento + "','" + CEP + "','" + Cidade + "','" + Estado + "','" + Telefone + "','" + Email + "',@foto)", DAO_Conexao.con);
+                insere.Parameters.AddWithValue("foto", this.Foto);
                 insere.ExecuteNonQuery();
                 cad = true;
             }
@@ -134,7 +134,8 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand atualiza = new MySqlCommand("update Estudio_Aluno set nomeAluno='" + Nome + "', ruaAluno='" + Rua + "', numeroAluno='" + Numero + "', bairroAluno='" + Bairro + "', complementoAluno='" + Complemento + "', CEPAluno='" + CEP + "', cidadeAluno='" + Cidade + "', estadoAluno='" + Estado + "', telefoneAluno='" + Telefone + "', emailAluno='" + Email + "' where CPFAluno ='" + CPF + "'", DAO_Conexao.con);
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Aluno set nomeAluno='" + Nome + "', ruaAluno='" + Rua + "', numeroAluno='" + Numero + "', bairroAluno='" + Bairro + "', complementoAluno='" + Complemento + "', CEPAluno='" + CEP + "', cidadeAluno='" + Cidade + "', estadoAluno='" + Estado + "', telefoneAluno='" + Telefone + "', emailAluno='" + Email + "', fotoAluno = @foto where CPFAluno ='" + CPF + "'", DAO_Conexao.con);
+                atualiza.Parameters.AddWithValue("foto", this.Foto);
                 atualiza.ExecuteNonQuery();
                 cad = true;
             }
@@ -148,6 +149,8 @@ namespace Estudio
             }
             return cad;
         }
+
+
 
         public bool consultarAluno()
         {
@@ -232,14 +235,27 @@ namespace Estudio
             return result;
         }
 
-        public bool excluirAluno()
+        
+
+        public bool excluirAluno(int id)
         {
             bool exc = false;
             try
             {
+                Turma t1 = new Turma();
+                int alunos = t1.contarAlunosnaTurma(id);
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("update Estudio_Aluno set ativo = 1 where CPFAluno = '" + CPF + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
+                DAO_Conexao.con.Close();
+                DAO_Conexao.con.Open();
+                MySqlCommand exclui2 = new MySqlCommand("delete from Estudio_AlunoTurma where aluno_cpf = '" + CPF + "'", DAO_Conexao.con);
+                exclui2.ExecuteNonQuery();
+                DAO_Conexao.con.Close();
+                DAO_Conexao.con.Open();
+                alunos = alunos - 1;
+                MySqlCommand exclui3 = new MySqlCommand("update Estudio_Turma set nalunosmatriculadosTurma = " + alunos + " where idEstudio_Turma = " + id + "", DAO_Conexao.con);
+                exclui3.ExecuteNonQuery();
                 exc = true;
             }
             catch (Exception e)

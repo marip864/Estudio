@@ -20,21 +20,25 @@ namespace Estudio
 
         private void maskedTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            dataGridView1.Rows.Clear();
             if (e.KeyChar == 13)
             {
                 AlunoTurma con_t = new AlunoTurma();
 
                 MySqlDataReader r = con_t.consultar(maskedTextBox1.Text);
 
+                //MySqlDataReader r2 = con_t.visualizar();
+
                 while (r.Read())
                 {
-                    dataGridView1.Rows.Add(r["turma_id"].ToString());
+                    
+                    //if (r2["idEstudio_Turma"] == r["turma_id"])
+
+                        dataGridView1.Rows.Add(r["nomeTurma"].ToString());
                 }
-
-
-
+                
                 DAO_Conexao.con.Close();
-
+                
             }
 
         }
@@ -53,14 +57,22 @@ namespace Estudio
         {
             try
             {
-                AlunoTurma turma = new AlunoTurma();
-                turma.excluirAlunoTurma(maskedTextBox1.Text, int.Parse(dataGridView1.CurrentCell.Value.ToString()));
+                AlunoTurma aturma = new AlunoTurma();
+                Turma t = new Turma();
+                aturma.Turma_id = t.selecionaIdTurma(dataGridView1.CurrentCell.Value.ToString());
+                aturma.excluirAlunoTurma(maskedTextBox1.Text);
                 MessageBox.Show("Excluído com sucesso!");
+                maskedTextBox1.Text = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Selecione uma opção para excluir!");
             }
+        }
+
+        private void maskedTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

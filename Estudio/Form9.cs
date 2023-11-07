@@ -30,10 +30,8 @@ namespace Estudio
 
             try
             {
-                
                 int cont = 0;
                 string nome = "";
-                int qtd_alunos = int.Parse(txtAlunos.Text);
                 string professor = txtProfessor.Text;
                 string dia_semana = cbxDiaSemana.Text;
                 string horas = txtHoras.Text;
@@ -49,8 +47,8 @@ namespace Estudio
                     cont = 2;
                     nome = string.Concat(txtModalidade.Text + " - " + cont.ToString() + "x");
                 }
-                Turma turma = new Turma(professor, dia_semana, horas, modalidade, qtd_alunos, nome);
-
+                Turma turma = new Turma(professor, dia_semana, horas, modalidade, nome);
+                Modalidade m1 = new Modalidade();
                 
 
                 if (turma.consultarIgual(txtProfessor.Text))
@@ -62,20 +60,18 @@ namespace Estudio
                     if (turma.cadastrarTurma())
                     {
                         MessageBox.Show("Cadastro realizado com sucesso!");
-                        txtAlunos.Text = "";
+                    }
+                    else
+                        MessageBox.Show("Erro no cadastro!");
                         txtProfessor.Text = "";
                         cbxDiaSemana.Text = "";
                         txtHoras.Text = "";
                         txtModalidade.Text = "";
-                        txtAlunos.Enabled = false;
                         txtProfessor.Enabled = false;
                         cbxDiaSemana.Enabled = false;
                         txtHoras.Enabled = false;
                         txtModalidade.Enabled = false;
                         btnCadastrar.Enabled = false;
-                    }
-                    else
-                        MessageBox.Show("Erro no cadastro!");
 
                 }
 
@@ -109,15 +105,10 @@ namespace Estudio
 
         private void txtHoras_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-                txtAlunos.Enabled = true;
+            btnCadastrar.Enabled=true;
+            
         }
 
-        private void txtAlunos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-                btnCadastrar.Enabled = true;
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

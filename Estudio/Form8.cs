@@ -23,6 +23,8 @@ namespace Estudio
             {
                 button1.Visible = false;
                 button2.Visible = false;
+                txtNovaDescricao.Visible = false;
+                lblNovaDescricao.Visible = false;
                 opcao = 1;
                 r = ac.consultarTodasModalidade01();
             }
@@ -49,15 +51,40 @@ namespace Estudio
                 int alunos = int.Parse(txtAlunos.Text);
                 int aulas = int.Parse(txtAulas.Text);
                 Modalidade m = new Modalidade(cbxDescricao.Text, preco, alunos, aulas);
+                
                 if (m.atualizarModalidade())
                 {
+                    if(!txtNovaDescricao.Text.Equals(""))
+                    {
+                        m.atualizarDescricaoModalidadecomNovoNome(txtNovaDescricao.Text, cbxDescricao.Text, m.selecionaId(cbxDescricao.Text), m.selecionaQtdeAulas(m.selecionaId(cbxDescricao.Text)));
+                    }
                     MessageBox.Show("Atualização realizada com sucesso!");
                 }
+                cbxDescricao.Text = "";
+                txtPreco.Text = "";
+                txtAlunos.Text = "";
+                txtAulas.Text = "";
+                txtNovaDescricao.Text = "";
+                txtNovaDescricao.Enabled = false;
+                txtAlunos.Enabled = false;
+                txtAulas.Enabled = false;
+                txtPreco.Enabled = false;
+            
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Selecione uma opção para atualizar!");
             }
+            cbxDescricao.Items.Clear();
+            Modalidade ac = new Modalidade();
+            MySqlDataReader r;
+            r = ac.consultarTodasModalidade();
+            while (r.Read())
+            {
+                cbxDescricao.Items.Add(r["descricaoModalidade"].ToString());
+            }
+
+            DAO_Conexao.con.Close();
 
         }
 
@@ -68,12 +95,6 @@ namespace Estudio
 
         private void cbxDescricao_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (opcao == 1)
-            {
-                txtPreco.Enabled = false;
-                txtAulas.Enabled = false;
-                txtAlunos.Enabled = false;
-            }
             Modalidade m = new Modalidade(cbxDescricao.Text);
             MySqlDataReader mdr = m.consultarModalidade();
             while (mdr.Read())
@@ -81,6 +102,10 @@ namespace Estudio
                 txtPreco.Text = mdr["precoModalidade"].ToString();
                 txtAulas.Text = mdr["qtdeAulas"].ToString();
                 txtAlunos.Text = mdr["qtdeAlunos"].ToString();
+                txtNovaDescricao.Enabled = true;
+                txtAlunos.Enabled = true;
+                txtAulas.Enabled = true;
+                txtPreco.Enabled = true;
             }
 
             DAO_Conexao.con.Close();

@@ -27,21 +27,30 @@ namespace Estudio
                 int qtd_alunos = int.Parse(txtAlunos.Text);
                 int qtd_aulas = int.Parse(txtAulas.Text);
                 Modalidade modalidade = new Modalidade(txtDescricao.Text, preco, qtd_alunos, qtd_aulas);
-                if (modalidade.cadastrarModalidade())
+                if ((txtDescricao.Text == "") || (txtPreco.Text == "") || (txtAulas.Text == "") || (txtAlunos.Text == ""))
                 {
-                    MessageBox.Show("Cadastro realizado com sucesso!");
+                    MessageBox.Show("Preencha todos os campos!");
                 }
-
                 else
-                    MessageBox.Show("Erro no cadastro!");
-                txtDescricao.Text = "";
-                txtPreco.Text = "";
-                txtAlunos.Text = "";
-                txtAulas.Text = "";
-                txtPreco.Enabled = false;
-                txtAlunos.Enabled = false;
-                txtAulas.Enabled = false;
-                btnCadastrar.Enabled = false;
+                {
+
+                    if (modalidade.cadastrarModalidade())
+                    {
+                        MessageBox.Show("Cadastro realizado com sucesso!");
+                    }
+
+                    else
+                        MessageBox.Show("Erro no cadastro!");
+
+                    txtDescricao.Text = "";
+                    txtPreco.Text = "";
+                    txtAlunos.Text = "";
+                    txtAulas.Text = "";
+                    txtPreco.Enabled = false;
+                    txtAlunos.Enabled = false;
+                    txtAulas.Enabled = false;
+                    btnCadastrar.Enabled = false;
+                }
             }
             catch (Exception ex)
             {

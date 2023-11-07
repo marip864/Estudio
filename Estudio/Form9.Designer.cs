@@ -30,8 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxDiaSemana = new System.Windows.Forms.ComboBox();
-            this.txtAlunos = new System.Windows.Forms.TextBox();
-            this.lblQtde_alunos = new System.Windows.Forms.Label();
             this.txtHoras = new System.Windows.Forms.MaskedTextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.txtProfessor = new System.Windows.Forms.TextBox();
@@ -49,8 +47,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbxDiaSemana);
-            this.groupBox1.Controls.Add(this.txtAlunos);
-            this.groupBox1.Controls.Add(this.lblQtde_alunos);
             this.groupBox1.Controls.Add(this.txtHoras);
             this.groupBox1.Controls.Add(this.btnCadastrar);
             this.groupBox1.Controls.Add(this.txtProfessor);
@@ -82,25 +78,6 @@
             this.cbxDiaSemana.Size = new System.Drawing.Size(400, 24);
             this.cbxDiaSemana.TabIndex = 12;
             this.cbxDiaSemana.SelectedIndexChanged += new System.EventHandler(this.cbxDiaSemana_SelectedIndexChanged);
-            // 
-            // txtAlunos
-            // 
-            this.txtAlunos.Enabled = false;
-            this.txtAlunos.Location = new System.Drawing.Point(442, 182);
-            this.txtAlunos.Name = "txtAlunos";
-            this.txtAlunos.Size = new System.Drawing.Size(137, 22);
-            this.txtAlunos.TabIndex = 11;
-            this.txtAlunos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlunos_KeyPress);
-            // 
-            // lblQtde_alunos
-            // 
-            this.lblQtde_alunos.AutoSize = true;
-            this.lblQtde_alunos.Location = new System.Drawing.Point(306, 185);
-            this.lblQtde_alunos.Name = "lblQtde_alunos";
-            this.lblQtde_alunos.Size = new System.Drawing.Size(119, 16);
-            this.lblQtde_alunos.TabIndex = 10;
-            this.lblQtde_alunos.Text = "Máximo de alunos:";
-            this.lblQtde_alunos.Click += new System.EventHandler(this.lblQtde_alunos_Click);
             // 
             // txtHoras
             // 
@@ -204,7 +181,9 @@
             this.ClientSize = new System.Drawing.Size(782, 570);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form9";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Turma";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -225,8 +204,6 @@
         private System.Windows.Forms.Label lblModalidade;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MaskedTextBox txtHoras;
-        private System.Windows.Forms.TextBox txtAlunos;
-        private System.Windows.Forms.Label lblQtde_alunos;
         private System.Windows.Forms.ComboBox cbxDiaSemana;
         private System.Windows.Forms.DataGridViewTextBoxColumn modalidade;
     }

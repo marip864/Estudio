@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNovaDescricao = new System.Windows.Forms.TextBox();
+            this.lblNovaDescricao = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txtAulas = new System.Windows.Forms.TextBox();
             this.txtAlunos = new System.Windows.Forms.TextBox();
@@ -44,6 +46,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNovaDescricao);
+            this.groupBox1.Controls.Add(this.lblNovaDescricao);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txtAulas);
             this.groupBox1.Controls.Add(this.txtAlunos);
@@ -61,9 +65,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidades";
             // 
+            // txtNovaDescricao
+            // 
+            this.txtNovaDescricao.Enabled = false;
+            this.txtNovaDescricao.Location = new System.Drawing.Point(161, 251);
+            this.txtNovaDescricao.Name = "txtNovaDescricao";
+            this.txtNovaDescricao.Size = new System.Drawing.Size(466, 22);
+            this.txtNovaDescricao.TabIndex = 11;
+            // 
+            // lblNovaDescricao
+            // 
+            this.lblNovaDescricao.AutoSize = true;
+            this.lblNovaDescricao.Location = new System.Drawing.Point(29, 254);
+            this.lblNovaDescricao.Name = "lblNovaDescricao";
+            this.lblNovaDescricao.Size = new System.Drawing.Size(106, 16);
+            this.lblNovaDescricao.TabIndex = 10;
+            this.lblNovaDescricao.Text = "Nova descrição:";
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(355, 264);
+            this.button2.Location = new System.Drawing.Point(355, 306);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(272, 23);
             this.button2.TabIndex = 9;
@@ -73,6 +94,7 @@
             // 
             // txtAulas
             // 
+            this.txtAulas.Enabled = false;
             this.txtAulas.Location = new System.Drawing.Point(161, 206);
             this.txtAulas.Name = "txtAulas";
             this.txtAulas.Size = new System.Drawing.Size(466, 22);
@@ -80,6 +102,7 @@
             // 
             // txtAlunos
             // 
+            this.txtAlunos.Enabled = false;
             this.txtAlunos.Location = new System.Drawing.Point(161, 154);
             this.txtAlunos.Name = "txtAlunos";
             this.txtAlunos.Size = new System.Drawing.Size(466, 22);
@@ -87,6 +110,7 @@
             // 
             // txtPreco
             // 
+            this.txtPreco.Enabled = false;
             this.txtPreco.Location = new System.Drawing.Point(161, 114);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(466, 22);
@@ -103,7 +127,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(43, 264);
+            this.button1.Location = new System.Drawing.Point(43, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(290, 23);
             this.button1.TabIndex = 4;
@@ -153,7 +177,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form8";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Modalidade";
             this.Load += new System.EventHandler(this.Form8_Load);
             this.groupBox1.ResumeLayout(false);
@@ -175,5 +201,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtNovaDescricao;
+        private System.Windows.Forms.Label lblNovaDescricao;
     }
 }
