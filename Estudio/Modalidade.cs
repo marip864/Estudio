@@ -364,9 +364,11 @@ namespace Estudio
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidade set ativa = 1 where descricaoModalidade = '" + exclusao + "'", DAO_Conexao.con);
-                MySqlCommand excluit = new MySqlCommand("update Estudio_Turma set ativa = 1 where idModalidade = " + i + "", DAO_Conexao.con);
+                MySqlCommand excluit = new MySqlCommand("delete from Estudio_Turma where idModalidade = " + i + "", DAO_Conexao.con);
+                MySqlCommand excluia = new MySqlCommand("delete from Estudio_AlunoTurma where idModalidade = " + i + "", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 excluit.ExecuteNonQuery();
+                excluia.ExecuteNonQuery();
                 result = true;
             }
             catch (Exception e)

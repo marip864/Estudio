@@ -18,7 +18,7 @@ namespace Estudio
         {
             InitializeComponent();
             Modalidade con_mod = new Modalidade();
-            MySqlDataReader r = con_mod.consultarTodasModalidade();
+            MySqlDataReader r = con_mod.consultarTodasModalidade01();
             while (r.Read())
                 dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
             DAO_Conexao.con.Close();

@@ -24,6 +24,7 @@ namespace Estudio
                 button1.Visible = false;
                 button2.Visible = false;
                 opcao = 1;
+                btnAtualizarFoto.Visible = false;   
             }
             if (op == 2)
             {

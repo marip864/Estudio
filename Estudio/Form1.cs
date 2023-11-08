@@ -83,7 +83,8 @@ namespace Estudio
 
         private void sairToolStripMenuItem_Click_2(object sender, EventArgs e)
         {
-            Close();
+            menuStrip1.Enabled = false;
+            groupBox1.Visible = true;
         }
 
         private void excluirAlunoToolStripMenuItem_Click(object sender, EventArgs e)

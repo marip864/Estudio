@@ -21,6 +21,8 @@ namespace Estudio
         private void txtCPFAluno_KeyPress(object sender, KeyPressEventArgs e)
         {
             cbxTurma.Items.Clear();
+            cbxDiaSemana.Items.Clear();
+            cbxHora.Items.Clear();
             Aluno aluno = new Aluno(txtCPFAluno.Text);
             if (e.KeyChar == 13)
             {
@@ -116,6 +118,8 @@ namespace Estudio
         private void cbxTurma_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbxDiaSemana.Items.Clear();
+            cbxDiaSemana.Text="";
+            cbxHora.Text = "";
             cbxDiaSemana.Enabled = true;
             Turma exc = new Turma();
             MySqlDataReader r = exc.consultar(cbxTurma.Text);
@@ -134,6 +138,7 @@ namespace Estudio
         private void cbxDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbxHora.Items.Clear();
+            cbxHora.Text = "";
             cbxHora.Enabled = true;
             Turma exc = new Turma();
             MySqlDataReader r = exc.consultarTurma01(cbxDiaSemana.Text, cbxTurma.Text);

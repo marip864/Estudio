@@ -32,6 +32,14 @@ namespace Estudio
                 Modalidade modalidade = new Modalidade();
                 modalidade.excluirModalidade(cbxDescricao.Text,modalidade.selecionaId(cbxDescricao.Text));
                 MessageBox.Show("Excluído com sucesso!");
+                cbxDescricao.Items.Clear();
+                Modalidade exc = new Modalidade();
+                MySqlDataReader r = exc.consultarTodasModalidade01();
+                while (r.Read())
+                {
+                    cbxDescricao.Items.Add(r["descricaoModalidade"].ToString());
+                }
+                DAO_Conexao.con.Close();
             }
             else
             {

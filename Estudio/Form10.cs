@@ -37,6 +37,8 @@ namespace Estudio
                 cbxTurma.Text = "";
                 cbxDiaSemana.Text = "";
                 cbxHora.Text = "";
+                cbxDiaSemana.Enabled = false;
+                cbxHora.Enabled = false;
             }
             else
             {
@@ -48,6 +50,8 @@ namespace Estudio
         {
             cbxDiaSemana.Items.Clear();
             cbxDiaSemana.Enabled = true;
+            cbxDiaSemana.Text = "";
+            cbxHora.Text = "";
             Turma exc = new Turma();
             MySqlDataReader r = exc.consultar(cbxTurma.Text);
             while (r.Read())
@@ -57,6 +61,7 @@ namespace Estudio
             if (cbxDiaSemana.Items.Count == 0)
             {
                 cbxDiaSemana.Enabled = false;
+                cbxHora.Enabled = false;
             }
 
             DAO_Conexao.con.Close();
@@ -76,6 +81,7 @@ namespace Estudio
         {
             cbxHora.Items.Clear();
             cbxHora.Enabled = true;
+            cbxHora.Text = "";
             Turma exc = new Turma();
             MySqlDataReader r = exc.consultarTurma01(cbxDiaSemana.Text, cbxTurma.Text);
             while (r.Read())

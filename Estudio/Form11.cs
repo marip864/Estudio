@@ -25,6 +25,9 @@ namespace Estudio
                 btnAtivo.Visible = false;
                 r = con_t.consultarTodasTurmas03();
                 opcao = 2;
+                txtProfessor.Enabled = false;
+                txtHora.Enabled = false;
+                cbxDiaSemana.Enabled = false;
             }
             else
             {
@@ -69,6 +72,27 @@ namespace Estudio
                     if (turma.atualizarTurma(int.Parse(txtId.Text)))
                     {
                         MessageBox.Show("Atualização realizada com sucesso!");
+                        txtId.Text = "";
+                        txtModalidade.Text = "";
+                        txtId.Text = Text = "";
+                        txtModalidade.Text = "";
+                        txtProfessor.Text = "";
+                        cbxDiaSemana.Text = "";
+                        txtHora.Text = "";
+                        txtAlunos.Text = "";
+
+                        dataGridView1.Rows.Clear();
+
+                        MySqlDataReader r = null;
+                        Turma con_t = new Turma();
+                        r = con_t.consultarTodasTurmas02();
+
+                        while (r.Read())
+                        {
+                            dataGridView1.Rows.Add(r["idEstudio_Turma"].ToString(), r["nomeTurma"].ToString(), r["professorTurma"].ToString(), r["diasemanaTurma"].ToString(), r["horaTurma"].ToString(), r["nalunosmatriculadosTurma"].ToString());
+                        }
+
+                        DAO_Conexao.con.Close();
                     }
 
                 }
@@ -97,6 +121,7 @@ namespace Estudio
                 if (t.tornarAtivo())
                 {
                     MessageBox.Show("Turma ativada com sucesso!");
+                    btnAtivo.Enabled = false;
                 }
             }
             catch (Exception ex)

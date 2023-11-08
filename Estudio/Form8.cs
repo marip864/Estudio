@@ -134,6 +134,7 @@ namespace Estudio
                 if (m.tornarAtivo())
                 {
                     MessageBox.Show("Modalidade ativada com sucesso!");
+                    button2.Enabled=false;
                 }
             }
             catch (Exception ex)

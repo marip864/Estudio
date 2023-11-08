@@ -113,6 +113,7 @@
             // 
             // txtModalidade
             // 
+            this.txtModalidade.Enabled = false;
             this.txtModalidade.Location = new System.Drawing.Point(473, 25);
             this.txtModalidade.Name = "txtModalidade";
             this.txtModalidade.Size = new System.Drawing.Size(158, 22);
@@ -129,6 +130,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(175, 25);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(144, 22);
