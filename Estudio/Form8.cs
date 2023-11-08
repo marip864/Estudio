@@ -25,6 +25,9 @@ namespace Estudio
                 button2.Visible = false;
                 txtNovaDescricao.Visible = false;
                 lblNovaDescricao.Visible = false;
+                txtAlunos.Enabled = false;
+                txtAulas.Enabled = false;
+                txtPreco.Enabled = false;   
                 opcao = 1;
                 r = ac.consultarTodasModalidade01();
             }
@@ -120,6 +123,12 @@ namespace Estudio
                 {
                     button2.Enabled = false;
                 }
+            }
+            if(opcao==1)
+            {
+                txtAlunos.Enabled = false;
+                txtAulas.Enabled = false;
+                txtPreco.Enabled = false;
             }
         }
 

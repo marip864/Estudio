@@ -72,6 +72,7 @@ namespace Estudio
             txtEmail.Enabled = false;
             button1.Enabled = false;
             pictureBox1.Image = null;
+            button2.Enabled = false;
         }
 
         private byte[] ConverterFotoParaByteArray()

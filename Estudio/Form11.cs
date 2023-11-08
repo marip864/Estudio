@@ -68,31 +68,37 @@ namespace Estudio
                         nome = string.Concat(m + " - " + cont.ToString() + "x");
                     }
                     Turma turma = new Turma(txtProfessor.Text, cbxDiaSemana.Text, txtHora.Text, int.Parse(txtId.Text), nome);
-
-                    if (turma.atualizarTurma(int.Parse(txtId.Text)))
+                    if (turma.consultarIgual(txtProfessor.Text))
                     {
-                        MessageBox.Show("Atualização realizada com sucesso!");
-                        txtId.Text = "";
-                        txtModalidade.Text = "";
-                        txtId.Text = Text = "";
-                        txtModalidade.Text = "";
-                        txtProfessor.Text = "";
-                        cbxDiaSemana.Text = "";
-                        txtHora.Text = "";
-                        txtAlunos.Text = "";
-
-                        dataGridView1.Rows.Clear();
-
-                        MySqlDataReader r = null;
-                        Turma con_t = new Turma();
-                        r = con_t.consultarTodasTurmas02();
-
-                        while (r.Read())
+                        MessageBox.Show("O professor já tem aula nesse dia e horário!");
+                    }
+                    else
+                    {
+                        if (turma.atualizarTurma(int.Parse(txtId.Text)))
                         {
-                            dataGridView1.Rows.Add(r["idEstudio_Turma"].ToString(), r["nomeTurma"].ToString(), r["professorTurma"].ToString(), r["diasemanaTurma"].ToString(), r["horaTurma"].ToString(), r["nalunosmatriculadosTurma"].ToString());
-                        }
+                            MessageBox.Show("Atualização realizada com sucesso!");
+                            txtId.Text = "";
+                            txtModalidade.Text = "";
+                            txtId.Text = Text = "";
+                            txtModalidade.Text = "";
+                            txtProfessor.Text = "";
+                            cbxDiaSemana.Text = "";
+                            txtHora.Text = "";
+                            txtAlunos.Text = "";
 
-                        DAO_Conexao.con.Close();
+                            dataGridView1.Rows.Clear();
+
+                            MySqlDataReader r = null;
+                            Turma con_t = new Turma();
+                            r = con_t.consultarTodasTurmas02();
+
+                            while (r.Read())
+                            {
+                                dataGridView1.Rows.Add(r["idEstudio_Turma"].ToString(), r["nomeTurma"].ToString(), r["professorTurma"].ToString(), r["diasemanaTurma"].ToString(), r["horaTurma"].ToString(), r["nalunosmatriculadosTurma"].ToString());
+                            }
+
+                            DAO_Conexao.con.Close();
+                        }
                     }
 
                 }
@@ -142,17 +148,34 @@ namespace Estudio
             txtHora.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             txtAlunos.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             Turma t = new Turma(int.Parse(txtId.Text));
+            Modalidade modalidade = new Modalidade(t.selecionaModalidade(txtModalidade.Text));
             if (opcao == 1)
             {
-                int n = t.verificaAtivo();
-                if (n == 1)
+                int nm = modalidade.verificaAtivoPorID();
+                if(nm == 0)
                 {
-                    btnAtivo.Enabled = true;
+                    int n = t.verificaAtivo();
+                    if (n == 1)
+                    {
+                        btnAtivo.Enabled = true;
+                    }
+                    else
+                    {
+                        btnAtivo.Enabled = false;
+                    }
                 }
                 else
                 {
                     btnAtivo.Enabled = false;
+                    btnAtualizar.Enabled = false;
+                    txtId.Enabled = false;
+                    txtModalidade.Enabled = false;
+                    txtProfessor.Enabled = false;
+                    cbxDiaSemana.Enabled = false;
+                    txtHora.Enabled = false;
+                    txtAlunos.Enabled = false;
                 }
+                
             }
             if (opcao == 2)
             {

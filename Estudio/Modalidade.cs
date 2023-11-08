@@ -19,6 +19,11 @@ namespace Estudio
         private float Preco;
         private int qtde_alunos, qtde_aulas, idModalidade;
 
+        public Modalidade(int idModalidade)
+        {
+            this.idModalidade = idModalidade;
+        }
+
         public Modalidade(string descricao, float preco, int qtde_alunos, int qtde_aulas)
         {
             Descricao1 = descricao;
@@ -159,6 +164,31 @@ namespace Estudio
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand consulta = new MySqlCommand("select ativa from Estudio_Modalidade where descricaoModalidade = '" + Descricao + "'", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+                if (resultS.Read())
+                {
+                    resultI = int.Parse(resultS["ativa"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return resultI;
+        }
+
+        public int verificaAtivoPorID()
+        {
+            MySqlDataReader resultS = null;
+            int resultI = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select ativa from Estudio_Modalidade where idEstudio_Modalidade = " + IdModalidade + "", DAO_Conexao.con);
                 resultS = consulta.ExecuteReader();
                 if (resultS.Read())
                 {
@@ -364,9 +394,11 @@ namespace Estudio
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidade set ativa = 1 where descricaoModalidade = '" + exclusao + "'", DAO_Conexao.con);
-                MySqlCommand excluit = new MySqlCommand("delete from Estudio_Turma where idModalidade = " + i + "", DAO_Conexao.con);
+                MySqlCommand excluit = new MySqlCommand("update Estudio_Turma set ativa = 1 where idModalidade = " + i + "", DAO_Conexao.con);
                 MySqlCommand excluia = new MySqlCommand("delete from Estudio_AlunoTurma where idModalidade = " + i + "", DAO_Conexao.con);
+                MySqlCommand excluiq = new MySqlCommand("update Estudio_Turma set nalunosmatriculadosTurma = 0 where idModalidade = " + i + "", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
+                excluiq.ExecuteNonQuery();
                 excluit.ExecuteNonQuery();
                 excluia.ExecuteNonQuery();
                 result = true;

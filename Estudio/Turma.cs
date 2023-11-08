@@ -570,7 +570,23 @@ namespace Estudio
             return resultS;
         }
 
-        
+        public MySqlDataReader consultar01(string s)
+        {
+            MySqlDataReader resultS = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select distinct diasemanaTurma from Estudio_Turma where nomeTurma ='" + s + "' and ativa = 0", DAO_Conexao.con);
+                resultS = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultS;
+        }
+
+
 
         public bool atualizarTurma(int id)
         {

@@ -88,9 +88,21 @@ namespace Estudio
 
         private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
             Aluno aluno = new Aluno(txtCPF.Text);
             if (e.KeyChar == 13)
             {
+                pictureBox1.Image= null;
+                txtNome.Text = "";
+                txtEnd.Text = "";
+                txtNumero.Text = "";
+                txtBairro.Text = "";
+                txtCompl.Text = "";
+                txtCEP.Text = "";
+                txtCidade.Text = "";
+                txtEstado.Text = "";
+                txtTel.Text = "";
+                txtEmail.Text = "";
                 MySqlDataReader dr = aluno.consultarAluno01();
                 if (dr.Read())
                 {

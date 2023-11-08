@@ -33,14 +33,22 @@ namespace Estudio
                 }
                 else
                 {
-               
-                    if (modalidade.cadastrarModalidade())
-                    {
-                        MessageBox.Show("Cadastro realizado com sucesso!");
-                    }
 
+                    if (modalidade.existeModalidade(txtDescricao.Text))
+                    {
+                        MessageBox.Show("Já existe essa modalidade!");
+                        txtDescricao.Text = "";
+                    }
                     else
-                        MessageBox.Show("Erro no cadastro!");
+                    {
+                        if (modalidade.cadastrarModalidade())
+                        {
+                            MessageBox.Show("Cadastro realizado com sucesso!");
+                        }
+
+                        else
+                            MessageBox.Show("Erro no cadastro!");
+                    }
 
                     txtDescricao.Text = "";
                     txtPreco.Text = "";

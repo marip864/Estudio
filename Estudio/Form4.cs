@@ -32,9 +32,16 @@ namespace Estudio
             {
                 if (aluno.consultarAluno())
                 {
-                    if (aluno.excluirAluno(t.Id))
+                    if (aluno.verificaAtivo() == 1)
                     {
-                        MessageBox.Show("Aluno excluído!");
+                        MessageBox.Show("O aluno já foi excluído!");
+                    }
+                    else
+                    {
+                        if (aluno.excluirAluno(t.Id))
+                        {
+                            MessageBox.Show("Aluno excluído!");
+                        }
                     }
                 }
                 else

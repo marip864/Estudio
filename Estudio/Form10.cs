@@ -53,7 +53,7 @@ namespace Estudio
             cbxDiaSemana.Text = "";
             cbxHora.Text = "";
             Turma exc = new Turma();
-            MySqlDataReader r = exc.consultar(cbxTurma.Text);
+            MySqlDataReader r = exc.consultar01(cbxTurma.Text);
             while (r.Read())
             {
                 cbxDiaSemana.Items.Add(r["diasemanaTurma"].ToString());
